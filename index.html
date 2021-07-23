@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Weather Report - Today</title>
+        <meta name="weather" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <header>
+        <body>
+            <div class="container">
+                <div class="top">
+                    <div class="left">
+                        <div class="left_top">
+                            <div class="l1">
+                                <img src="/img/london.svg" width="80" height="80">
+                            </div>
+                            <div class="l2">
+                                
+                                <select class="city" name="cities" id="cities">
+                                    <option value="New Delhi">New Delhi</option>
+                                    <option value="London">London</option>
+                                    <option value="Yangon">Yangon</option>
+                                    <option value="Dublin">Dublin</option>
+                                </select>
+                            </div>
+                            <div class="l3">
+                                <div class="temp">
+                                    <p class="light">Temp<span>&#176;</span> C</p><p class="bold">25 &nbsp; C</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top_down">
+                            <div class="date_time">
+                                <p class="time">10:10:<small>44</small> <big>AM</big></p>
+                                <p class="date">22-July-2021</p>
+                            </div>
+                            <div class="temp-one">
+                                <p class="light">Temp<span>&#176;</span> F</p><p class="bold">79 &nbsp; F</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="vertical">
+                            <div class="vl"></div>
+                            <div class="vl"></div>
+                        </div>
+                        <div class="humid_precip">
+                            <div class="humid">
+                                <p class="light">Humidity<p class="bold">26%</p>
+                            </div>
+                            <div class="precip">
+                                <p class="light">Precipitation</p><p class="bold">0%</p>
+                            </div>
+                        </div>
+                        <div class="cloud">
+                            <div class="time">
+                                <p class="time-align">NOW</p>
+                                <p class="time-align">11 AM</p>
+                                <p class="time-align">12 PM</p>
+                                <p class="time-align">1 PM</p>
+                                <p class="time-align">2 PM</p>
+                                <p class="time-align">3 PM</p>
+                            </div>
+                            <div class="line">
+                                <p class="line-align"><div class="v1"></div></p>
+                                <p class="line-align"><div class="v1"></div></p>
+                                <p class="line-align"><div class="v1"></div></p>
+                                <p class="line-align"><div class="v1"></div></p>
+                                <p class="line-align"><div class="v1"></div></p>
+                                <p class="line-align"><div class="v1"></div></p>
+                                <p class="line-align"><div class="v1"></div></p>
+                                <p class="line-align"><div class="v1"></div></p>
+                                <p class="line-align"><div class="v1"></div></p>
+                                <p class="line-align"><div class="v1"></div></p>
+                                <p class="line-align"><div class="v1"></div></p>
+                            </div>
+                            <div class="cloud-icon">
+                                <img src="img/cloudyIcon.svg" width="20px" style="margin-right: 30px;">
+                                <img src="img/rainyIcon.svg" width="20px" style="margin-right: 32px;">
+                                <img src="img/windyIcon.svg" width="20px" style="margin-right: 37px;">
+                                <img src="img/rainyIcon.svg" width="20px" style="margin-right: 40px;">
+                                <img src="img/windyIcon.svg" width="20px" style="margin-right: 31px;">
+                                <img src="img/rainyIcon.svg" width="20px" style="margin-right: 30px;">
+                            </div>
+                            <div class="number">
+                                <p class="number-align" style="padding-right: 50px;">6</p>
+                                <p class="number-align" style="padding-right: 54px;">7</p>
+                                <p class="number-align" style="padding-right: 54px;">7</p>
+                                <p class="number-align" style="padding-right: 55px;">8</p>
+                                <p class="number-align" style="padding-right: 54px;">8</p>
+                                <p class="number-align" style="padding-right: 50px;">6</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle">
+                    <div class="mid_top">
+                        <div class="m_left">
+                            <p style="text-align:center;">Top cities around the world</p>
+                        </div>
+                        <div class="m_right">
+                            <div class="icon-small">
+                                <div class="icon_align">
+                                    <img src="img/sunnyIcon.svg" width="15px" style="margin-top: 10px; margin-right: 20px;"> 
+                                    <img src="img/snowflakeIcon.svg" width="15px" style="margin-right: 20px;">
+                                    <img src="img/windyIcon.svg" width="15px" style="margin-right: 50px;">
+                                </div>
+                                <div class="msg">
+                                    <p style="text-align: center;">Display Top</p>
+                                </div>
+                                <div class="drop">
+            
+                                    <select name="num" id="num">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mid_bottom">
+                        <div class="sec1">
+                            <div class="sec1-s1">
+                                <p class="text" style="text-align:left;">London</p>
+                                <img src="img/sunnyIcon.svg" width="15px">
+                                <p class="text">25<span>&#176;</span> C</p>
+                            </div>
+                            <div class="a1">
+                                <div class="a1_1">
+                                    <img src="img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p style="font-size: 12px;">53%</p>
+                                </div>
+                                <div class="a1_2">
+                                    <img src="img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p style="font-size: 12px;">5km/hr</p>
+                                </div>
+                                <div class="a1_3">
+                                    <img src="img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p style="font-size: 12px;">10%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sec1">
+                            <div class="sec1-s1">
+                                <p class="text" style="text-align:left;">London</p>
+                                <img src="img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                <p class="text">25<span>&#176;</span> C</p>
+                            </div>
+                            <div class="a1">
+                                <div class="a1_1">
+                                    <img src="img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p style="font-size: 12px;">53%</p>
+                                </div>
+                                <div class="a1_2">
+                                    <img src="img/windyIcon.svg" width="15px" style="margin-right: 10px;"> 
+                                    <p  style="font-size: 12px;">5km/hr</p>
+                                </div>
+                                <div class="a1_3">
+                                    <img src="img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p  style="font-size: 12px;">10%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sec1">
+                            <div class="sec1-s1">
+                                <p class="text" style="text-align:left;">London</p>
+                                <img src="img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                <p class="text">25<span>&#176;</span> C</p>
+                            </div>
+                            <div class="a1">
+                                <div class="a1_1">
+                                    <img src="img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p  style="font-size: 12px;">53%</p>
+                                </div>
+                                <div class="a1_2">
+                                    <img src="img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p  style="font-size: 12px;">5km/hr</p>
+                                </div>
+                                <div class="a1_3">
+                                    <img src="img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p  style="font-size: 12px;">10%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sec1">
+                            <div class="sec1-s1">
+                                <p class="text" style="text-align:left;">London</p>
+                                <img src="img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                <p class="text">25<span>&#176;</span> C</p>
+                            </div>
+                            <div class="a1">
+                                <div class="a1_1">
+                                    <img src="img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p  style="font-size: 12px;">53%</p>
+                                </div>
+                                <div class="a1_2">
+                                    <img src="img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p  style="font-size: 12px;">5km/hr</p>
+                                </div>
+                                <div class="a1_3">
+                                    <img src="img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p  style="font-size: 12px;">10%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sec1">
+                            <div class="sec1-s1">
+                                <p class="text" style="text-align:left;">London</p>
+                                <img src="img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                <p class="text">25<span>&#176;</span> C</p>
+                            </div>
+                            <div class="a1">
+                                <div class="a1_1">
+                                    <img src="img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p  style="font-size: 12px;">53%</p>
+                                </div>
+                                <div class="a1_2">
+                                    <img src="img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p  style="font-size: 12px;">5km/hr</p>
+                                </div>
+                                <div class="a1_3">
+                                    <img src="img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p  style="font-size: 12px;">10%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="s1">
+                        <div class="s1-1">
+                            <p style="text-align:left;">&nbsp &nbsp &nbsp Cities across continents at a Glance</p>
+                        </div>
+                        <div>
+                            <p style="text-align:right"> Continent Name &#8595; &nbsp Temperature &#8593; &nbsp &nbsp &nbsp &nbsp &nbsp</p>
+                        </div>
+                    </div>
+                    <div class="s2">
+                        <p style="text-align:center;">Top cities around the world</p>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </body>
+    </header>
+</html>
