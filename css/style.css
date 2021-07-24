@@ -38,9 +38,11 @@ body{
 }
 .l1{
     width: 30%;
+    margin-left: 0;
+    padding: 0;
 }
 .l2{
-    padding-top: 35px;
+    padding-top: 30px;
     color: white;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
@@ -48,13 +50,15 @@ body{
     position: absolute;
     border: none;
     font-size:initial;
-    height: 40px;
+    width: 40%;
 }
 .city{
     background-color: rgb(87, 85, 85);
     color:white;
     width: 100px;
     margin-left: 120px;
+    border: none;
+    padding: 15px 8px;
 }
 .l3{  
     width: 30%;
@@ -66,12 +70,13 @@ body{
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: white;
     padding-left: 20px;
+    margin-top: 5px;
 }
 .temp-one{
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: white;
-    padding-left: 110px;
-    margin-left: 40px;
+    padding-left: 85px;
+    margin-left: 0px;
 }
 .top_down{
     display: flex;
@@ -79,9 +84,9 @@ body{
     margin-top: 5px;
 }
 .date_time{
-    margin-left: 25%;
     margin-top: 0;
-    margin-left: 40px;
+    margin-left:110px;
+    font-size: 90px;
 }
 .date{
     color:rgb(233, 232, 227);
@@ -94,7 +99,9 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
     display: flex;
-    margin-top: 25px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 0px;
 }
 .right{
     width: 75%;
@@ -161,20 +168,20 @@ body{
     font-size: 1.25rem;
 }
 .light{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: small;
 }
 .bold{
     font-family: fantasy;
     font-size: large;
     margin-top: 0px;
-    line-height: 0px;
+    line-height: 1.5px;
     padding-left: 5px;
     padding-top: 1px;
 }
 .vl {
-    margin-top: 20px;
-    height: 70px;
+    margin-top: 35px;
+    height: 50px;
     border-left: 1px solid #f6f6f8;
     width: 10px;
     margin-right: 10px;
@@ -183,39 +190,47 @@ body{
     padding-bottom: 0;
   }
 .humid_precip{
-    margin-left: 50px;
+    margin-left: 10px;
     margin-right: 50px;
-    margin-top: 20px;
+    margin-top: 35px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     display: flex;
     flex-direction: column;
     color:honeydew;
 }
 .time-align{
-    padding-right: 30px;
+    text-align:start;
+    padding-right: 25px;
+    padding-left: 25px;
 }
 .v1{
-    height: 10px;
+    height: 9px;
     border-left: 1px solid #f6f6f8;
     width: 10px;
     margin-right: 20px;
-    padding-right: 0;
+    padding-right: 20px;
 }
 .line{
     display: flex; 
     margin-bottom: 0px;
     padding-bottom: 0px;
-    margin-top: 10px;
+    margin-top: 6px;
+    margin-left: 10px;
+    margin-right: 100px;
 }
 .cloud-icon{
-    margin: 0px;
+    margin-top: 5px;
     padding: 0px;
+    margin-left: 10px;
+    margin-bottom: 5px;
 }
 .number{
     color: rgb(250, 248, 239);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
     display: flex;
-    margin: 5px;
+    margin-top: 10px;
+    margin-left: 15px;
 }
 .icon-align{
     margin-top: 10px;
@@ -258,4 +273,14 @@ body{
     margin-top: 0px;
     margin-bottom: 0px;
     height: 35px;
+}
+.humid{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.precip{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 10px;
+}
+.cloud{
+    font-size: large;
 }
