@@ -19,12 +19,12 @@ body{
 .top{
     width: 100%;
     height: 200px;
-    background-image: url('/img/background.svg');
+    background-image: url('./img/background.svg');
     display: flex;
     justify-content: flex-start;
 }
 .left{
-    width: 25%;
+    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: baseline;
@@ -33,7 +33,7 @@ body{
 }
 .left_top{
     display:flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 
 }
 .l1{
@@ -50,13 +50,14 @@ body{
     position: absolute;
     border: none;
     font-size:initial;
+    margin-left: 2px;
     width: 40%;
     
 }
 .city{
     background-color: rgb(87, 85, 85);
     color:honeydew;
-    width: 100px;
+    width: 120px;
     margin-left: 120px;
     border: none;
     padding: 15px 8px;
@@ -67,7 +68,6 @@ body{
     padding-left: 0px;
     margin-left: 150px;
 }
-
 .temp{
     font-family: 'Roboto';
     color:honeydew;
@@ -177,6 +177,11 @@ body{
     height: 100%;
     display: flex;
     color:honeydew;
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    /* flex-direction: column; */
 }
 .text-bold{
     font-size: 1.25rem;
@@ -194,14 +199,10 @@ body{
     padding-top: 1px;
 }
 .vl {
-    margin-top: 35px;
     height: 50px;
     border-left: 1px solid #f6f6f8;
-    width: 10px;
-    margin-right: 10px;
-    padding-right: 0;
-    margin-bottom: 0;
-    padding-bottom: 0;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 .humid_precip{
     margin-left: 10px;
@@ -259,30 +260,14 @@ body{
     font-family: 'Roboto';
     margin-top: 10px;
 }
-.row1{
-    display: flex;
-    margin-left: 10px;
-    padding-left: 10px;
-    margin-right: 10px;
-    padding-right: 10px;
-    margin-top: 0px;
-    padding-top: 0px;
-}
-.row2{
-    margin-top: 0px;
-    padding-top: 0px;
-    display: flex;
-    justify-content: space-around;
-}
-.row3{
-    display: flex;
-    margin-top: 0px;
-    padding-top: 0px;
-    justify-content: space-around;
-}
 .s2{
     display: flex;
-    flex-direction: column;
+    align-items: start;
+    align-content: flex-start;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    height: 100%;
+    color: honeydew;
 }
 .conti{
     color:rgb(255, 244, 97, 1);
@@ -291,7 +276,6 @@ body{
     font-size: 15px;
     margin-top: 5px;
     margin-bottom: 0px;
-    padding-bottom: 0px;
 }
 .town{
     font-family: Roboto;
@@ -299,7 +283,6 @@ body{
     font-weight: 300;
     font-size: 10px;
     margin-top: 0px;
-    padding-top: 0px;
     color: #FFFFFF;
     margin-bottom: 0px;
     padding-bottom: 0px;
@@ -331,7 +314,8 @@ body{
 }
 .row1-col1{
     padding-left: 20px;
-    margin-left: 100px;
+    margin-left: 10px;
+    width: 250px;
     margin-bottom: 10px;
     padding-bottom: 5px;
     padding-right: 10px;
@@ -341,9 +325,10 @@ body{
 }
 .row1-col2{
     padding-left: 10px;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 10px;
+    /* margin-right: 10px; */
     margin-bottom: 10px;
+    width: 250px;
     padding-bottom: 5px;
     padding-right: 10px;
     padding-top: 0px;
@@ -356,8 +341,9 @@ body{
     padding-bottom: 5px;
     padding-top: 0px;
     margin-top: 0px;
+    width: 250px;
     padding-right: 10px;
-    margin-right: 100px;
+    margin-left: 10px;
     background-color: #2E2E2E;
 }
 .drop-1{
@@ -403,8 +389,35 @@ body{
 }
 .cloud{
     display: flex;
-    margin-left: 50px;
+    margin-left: 10px;
 }
 .icon-small{
     display: flex;
+}
+.outer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+.top-outer{
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.left-outer{
+    color: white;
+    font-family: roboto;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.ligh{
+    font-size: 12px;
+    margin: 0px;
+}
+.bold-val{
+    font-size: 20px;
+    font-weight: bolder;
+    margin: 0px;
 }
