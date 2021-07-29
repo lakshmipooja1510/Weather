@@ -10,11 +10,10 @@
         <link rel="stylesheet" href="./css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     </head>
     <header>
         <body>
-            <div class="container">
                 <div class="top">
                     <div class="left">
                         <div class="left_top">
@@ -23,48 +22,41 @@
                             </div>
                             <div class="l2">  
                                 <select class="city" name="cities" id="cities">
-                                    <option value="New Delhi"style="padding: 20px;">New Delhi</option>
+                                    <option value="New Delhi">New Delhi</option>
                                     <option value="London">London</option>
                                     <option value="Yangon">Yangon</option>
                                     <option value="Dublin">Dublin</option>
                                 </select>
                             </div>
-                            <!-- <div class="l3">
-                                <div class="temp">
-                                    <p class="light">Temp<span>&#176;</span> C</p><p class="bold">25 &nbsp; C</p>
-                                </div>
-                            </div> -->
                         </div>
-                        <div class="top_down">
                             <div class="date_time">
                                 <img src="./img/sunnyIcon.svg" width="11px" style="margin-left: 79px;">
                                 <p class="time1">10:10:<small>44</small> <big>AM</big></p>
                                 <p class="date">22-July-2021</p>
                             </div>
-                        </div>
                     </div>
-                    <div class="outer">
-                        <div class="top-outer">
-                            <div class="left-outer">
-                                <p class="ligh">Temp C</p>
-                                <p class="bold-val">25C </p>
-                            </div>
-                            <div class="vl"></div>
-                            <div class="left-outer">
-                                <p class="ligh">Humidity</p>
-                                <p class="bold-val">26 %</p>
-                            </div>
+                    <div class="grid">
+                        <div class="grid-item">
+                            <span class="ligh">Temp&#176;C<br></span>
+                            <span class="bold-val">25C </span>
                         </div>
-                        <div class="top-outer">
-                            <div class="left-outer">
-                                <p class="ligh">Temp F</p>
-                                <p class="bold-val">78 F</p>
-                            </div>
+                        <div class="grid-item">
                             <div class="vl"></div>
-                            <div class="left-outer">
-                                <p class="ligh">Precipitation</p>
-                                <p class="bold-val">0%</p>
-                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <span class="ligh">Humidity<br></span>
+                            <span class="bold-val">26 %</span>
+                        </div>
+                        <div class="grid-item">
+                            <span class="ligh">Temp F<br></span>
+                            <span class="bold-val">78F</span>
+                        </div>
+                        <div class="grid-item">
+                            <div class="vl"></div>
+                        </div>
+                        <div class="grid-item">
+                            <span class="ligh">Precipitation<br></span>
+                                <span class="bold-val">0%</span>
                         </div>
                     </div>
                         <div class="cloud">
@@ -147,8 +139,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="middle">
+                <section class="middle">
                     <div class="mid_top">
                         <div class="m_left">
                             <p style="text-align:center;" style="font-family: Roboto;" style="font-weight: 50;">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Top cities around the world</p>
@@ -156,24 +147,21 @@
                         <div class="m_right">
                             <div class="icon-small">
                                 <div class="icon_align">
-                                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-top: 10px; margin-right: 10px;"> 
-                                    <img src="./img/snowflakeIcon.svg" width="15px" style="margin-right: 10px;">
-                                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 50px;">
+                                    <img class="sticky" src="./img/sunnyIcon.svg" width="15px" style="margin-top: 10px; margin-right: 10px;"> 
+                                    <img class="sticky" src="./img/snowflakeIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <img class="sticky" src="./img/windyIcon.svg" width="15px" style="margin-right: 50px;">
                                 </div>
                                 <div class="msg">
                                     <p>Display Top</p>
                                 </div>
                                 <div class="drop">
-                                    <select name="num" id="num">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
+                                    <input type="number" id="quantity" name="quantity" min="3" max="10">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="mid_bottom">
+                        <span class="arrow">&#11160;</span>
                         <div class="sec1">
                             <div class="sec1-s1">
                                 <p class="text" style="text-align:left;">London</p>
@@ -181,6 +169,12 @@
                                 <p class="text">25<span>&#176;</span> C</p>
                             </div>
                             <div class="a1">
+                                <div class="time-a1">
+                                    <span>10:00 AM</span>
+                                </div>
+                                <div class="date-a1">
+                                    <span>2-Mar-2021</span>
+                                </div>
                                 <div class="a1_1">
                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                                     <p style="font-size: 12px;">53%</p>
@@ -202,6 +196,12 @@
                                 <p class="text">25<span>&#176;</span> C</p>
                             </div>
                             <div class="a1">
+                                <div class="time-a1">
+                                    <span>10:00 AM</span>
+                                </div>
+                                <div class="date-a1">
+                                    <span>2-Mar-2021</span>
+                                </div>
                                 <div class="a1_1">
                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                                     <p style="font-size: 12px;">53%</p>
@@ -223,6 +223,12 @@
                                 <p class="text">25<span>&#176;</span> C</p>
                             </div>
                             <div class="a1">
+                                <div class="time-a1">
+                                    <span>10:00 AM</span>
+                                </div>
+                                <div class="date-a1">
+                                    <span>2-Mar-2021</span>
+                                </div>
                                 <div class="a1_1">
                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                                     <p  style="font-size: 12px;">53%</p>
@@ -237,6 +243,33 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- <div class="sec1">
+                            <div class="sec1-s1">
+                                <p class="text" style="text-align:left;">London</p>
+                                <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                <p class="text">25<span>&#176;</span> C</p>
+                            </div>
+                            <div class="a1">
+                                <div class="time-a1">
+                                    <span>10:00 AM</span>
+                                </div>
+                                <div class="date-a1">
+                                    <span>2-Mar-2021</span>
+                                </div>
+                                <div class="a1_1">
+                                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p  style="font-size: 12px;">53%</p>
+                                </div>
+                                <div class="a1_2">
+                                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p  style="font-size: 12px;">5km/hr</p>
+                                </div>
+                                <div class="a1_3">
+                                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                    <p  style="font-size: 12px;">10%</p>
+                                </div>
+                            </div>
+                        </div> -->
                         <div class="sec1">
                             <div class="sec1-s1">
                                 <p class="text" style="text-align:left;">London</p>
@@ -244,6 +277,12 @@
                                 <p class="text">25<span>&#176;</span> C</p>
                             </div>
                             <div class="a1">
+                                <div class="time-a1">
+                                    <span>10:00 AM</span>
+                                </div>
+                                <div class="date-a1">
+                                    <span>2-Mar-2021</span>
+                                </div>
                                 <div class="a1_1">
                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                                     <p  style="font-size: 12px;">53%</p>
@@ -258,29 +297,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="sec1">
-                            <div class="sec1-s1">
-                                <p class="text" style="text-align:left;">London</p>
-                                <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                <p class="text">25<span>&#176;</span> C</p>
-                            </div>
-                            <div class="a1">
-                                <div class="a1_1">
-                                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                    <p  style="font-size: 12px;">53%</p>
-                                </div>
-                                <div class="a1_2">
-                                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
-                                    <p  style="font-size: 12px;">5km/hr</p>
-                                </div>
-                                <div class="a1_3">
-                                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                    <p  style="font-size: 12px;">10%</p>
-                                </div>
-                            </div>
-                        </div>
+                        <span class="arrow">&#11162;</span>
                     </div>
-                </div>
+                </section>
                 <div class="bottom">
                     <div class="s1">
                         <div>
@@ -325,68 +344,9 @@
                                     <P class="percent">53%</P>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row1">
-                            <div class="row1-col1">
+                            <div class="row1-col4">
                                 <div class="up">
                                     <p class="conti">Asia</p>
-                                    <p class="val">38<span>&#176;</span> C</p>
-                                </div>
-                                <div class="down">
-                                    <p class="town">Delhi, 10:10AM</p>
-                                    <img class="drop-1" src="./img/humidityIcon.svg">
-                                    <P class="percent">53%</P>
-                                </div>
-                            </div>
-                            <div class="row1-col2">
-                                <div class="up">
-                                    <p class="conti">Africa</p>
-                                    <p class="val">38<span>&#176;</span> C</p>
-                                </div>
-                                <div class="down">
-                                    <p class="town">Delhi, 10:10AM</p>
-                                    <img class="drop-1" src="./img/humidityIcon.svg">
-                                    <P class="percent">53%</P>
-                                </div>
-                            </div>
-                            <div class="row1-col3">
-                                <div class="up">
-                                    <p class="conti">Europe</p>
-                                    <p class="val">38<span>&#176;</span> C</p>
-                                </div>
-                                <div class="down">
-                                    <p class="town">Delhi, 10:10AM</p>
-                                    <img class="drop-1" src="./img/humidityIcon.svg">
-                                    <P class="percent">53%</P>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row1">
-                            <div class="row1-col1">
-                                <div class="up">
-                                    <p class="conti">Asia</p>
-                                    <p class="val">38<span>&#176;</span> C</p>
-                                </div>
-                                <div class="down">
-                                    <p class="town">Delhi, 10:10AM</p>
-                                    <img class="drop-1" src="./img/humidityIcon.svg">
-                                    <P class="percent">53%</P>
-                                </div>
-                            </div>
-                            <div class="row1-col2">
-                                <div class="up">
-                                    <p class="conti">Africa</p>
-                                    <p class="val">38<span>&#176;</span> C</p>
-                                </div>
-                                <div class="down">
-                                    <p class="town">Delhi, 10:10AM</p>
-                                    <img class="drop-1" src="./img/humidityIcon.svg">
-                                    <P class="percent">53%</P>
-                                </div>
-                            </div>
-                            <div class="row1-col3">
-                                <div class="up">
-                                    <p class="conti">Europe</p>
                                     <p class="val">38<span>&#176;</span> C</p>
                                 </div>
                                 <div class="down">
@@ -430,6 +390,64 @@
                                     <P class="percent">53%</P>
                                 </div>
                             </div>
+                            <div class="row1-col4">
+                                <div class="up">
+                                    <p class="conti">Asia</p>
+                                    <p class="val">38<span>&#176;</span> C</p>
+                                </div>
+                                <div class="down">
+                                    <p class="town">Delhi, 10:10AM</p>
+                                    <img class="drop-1" src="./img/humidityIcon.svg">
+                                    <P class="percent">53%</P>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row1">
+                            <div class="row1-col1">
+                                <div class="up">
+                                    <p class="conti">Asia</p>
+                                    <p class="val">38<span>&#176;</span> C</p>
+                                </div>
+                                <div class="down">
+                                    <p class="town">Delhi, 10:10AM</p>
+                                    <img class="drop-1" src="./img/humidityIcon.svg">
+                                    <P class="percent">53%</P>
+                                </div>
+                            </div>
+                            <div class="row1-col2">
+                                <div class="up">
+                                    <p class="conti">Africa</p>
+                                    <p class="val">38<span>&#176;</span> C</p>
+                                </div>
+                                <div class="down">
+                                    <p class="town">Delhi, 10:10AM</p>
+                                    <img class="drop-1" src="./img/humidityIcon.svg">
+                                    <P class="percent">53%</P>
+                                </div>
+                            </div>
+                            <div class="row1-col3">
+                                <div class="up">
+                                    <p class="conti">Europe</p>
+                                    <p class="val">38<span>&#176;</span> C</p>
+                                </div>
+                                <div class="down">
+                                    <p class="town">Delhi, 10:10AM</p>
+                                    <img class="drop-1" src="./img/humidityIcon.svg">
+                                    <P class="percent">53%</P>
+                                </div>
+                            </div>
+                            <div class="row1-col4">
+                                <div class="up">
+                                    <p class="conti">Asia</p>
+                                    <p class="val">38<span>&#176;</span> C</p>
+                                </div>
+                                <div class="down">
+                                    <p class="town">Delhi, 10:10AM</p>
+                                    <img class="drop-1" src="./img/humidityIcon.svg">
+                                    <P class="percent">53%</P>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
