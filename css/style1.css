@@ -1,27 +1,4 @@
 @import "style.css";
-@media only screen and (max-width: 800px) {
-    /* .left{
-        width: 20%;
-    }
-    .grid{
-        width: 20%;
-    }
-    .cloud{
-        width:60%;
-    }
-    .m_left{
-        width: 60%;
-    }
-    .m_right{
-        width: 40%;
-    }
-    .s1{
-        width: 100%;
-    }
-    .row1{
-        width: 33.3%
-    } */
-    body{
-        margin-top: 15px;
-    }
+@media only screen and (max-width: 1125px) {
+    
 }
