@@ -16,6 +16,9 @@ body{
     width: 100%;
     height: 280px;
 }
+/* #rcorners1 {
+    border-radius: 46px 46px 0px 0px;
+}  */
 .middle{
     margin: 0px;
     height: 350px;
@@ -75,7 +78,8 @@ body{
 .mid_top{
     display: flex;
     height: 100px;
-    
+    /* border-radius: 46px 46px 0px 0px; */
+    /* border-radius: 25px; */
 }
 .m_left{
     display: flex;
@@ -129,7 +133,6 @@ body{
     color:white;
     display: flex;
     align-items: center;
-    width: auto;
     justify-content: space-between;
     height: 100px;
 }
@@ -304,10 +307,22 @@ body{
 .row1-col1{
     width: 300px;
     background-color: #2E2E2E;
+    animation-name: example;
+    animation-duration: 1s;
     padding: 10px 10px 10px 10px;
 }
+@keyframes example{
+    0%   {background-color: #2E2E2E;}
+    50%  {background-color: rgb(31, 31, 32);}
+    100%   {background-color: #2E2E2E;}
+}
 .drop-1{
-   width: 15px;
+    width: 15px;
+    animation-name: example-1;
+    animation-duration: 1s;
+}
+@keyframes example-1 {
+    100%   {left:500px;}
 }
 .c1{
     width: 100%;
@@ -318,7 +333,7 @@ body{
     font-family: 'Roboto', sans-serif;
     font-weight: lighter;
     justify-content: center;ans-serif;
-    font-weight:lighter
+    font-weight:lighter;
 }
 .r1-c1{
     text-align: center;
@@ -456,45 +471,8 @@ body{
         padding-top: 10px;
         width: 100%;
     }
-    .s2{
-       justify-content: center;
-    }
     .row1{
         width: 300px;
-    }
-  }
-  @media only screen and (max-width: 1200px){
-    .arrow{  
-        width: 30px;
-        height: 30px;
-    }
-    .london-icon{
-        width: 120px;
-        justify-content: space-between;
-    }
-    .sec1{
-        width: 200px;
-        height: 180px;
-        background-size: 50%;
-    }
-    .text{
-        font-size: 15px;
-    }
-    .time-10 {
-        font-size: 13px;
-        padding-bottom: 5px;
-    }
-    .date-a1{
-        font-size: 13px;
-    }
-    .a1_1{
-        font-size: 13px;
-    }
-    .a1_2{
-        font-size: 13px;
-    }
-    .a1_3{
-        font-size: 13px;
     }
   }
   @media only screen and (max-width: 1100px){
@@ -530,7 +508,6 @@ body{
         width: auto;
     }
     .cloud{
-        flex-wrap: wrap;
         margin-right: 0px;
         width: auto;
     }
@@ -551,8 +528,8 @@ body{
     .mid_bottom{
         margin-left: 2px;
         width: auto;
-
         overflow-y: auto;
+        overflow: hidden;
     }
     .sticky{
         width: 15px;
@@ -562,25 +539,6 @@ body{
         width: auto;
         text-align:center;
     }
-    .msg{
-        margin-top: 20px;
-        margin-right: 50px;
-    }
-    .drop{
-        margin-top: 20px;
-    }
-     .row1-col1{
-         width: 150px;
-     }
-     .row1-col2{
-        width: 150px;
-    }
-    .row1-col3{
-        width: 150px;
-    }
-    .row1-col4{
-        width: 150px;
-    }
     .drop-1{
         margin-left: 45px;
     }
@@ -589,14 +547,10 @@ body{
     }
     .s2{
         width: auto;
-        justify-content: center;
         margin-left: 20px;
      }
      .row1{
          width: 180px;
-     }
-     .sec1{
-         width: 110px;
      }
      .text{
          font-size: 20px;
