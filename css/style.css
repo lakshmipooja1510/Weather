@@ -1,16 +1,28 @@
 *{
     box-sizing: border-box;
 }
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 7px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
 body{
     margin: 0;
-    background-color:black;
     font-family: 'Roboto', sans-serif;
-}
-.top{
-    align-items: center;
     background-image: url(../img/background.svg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+.top{
+    align-items: center;
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -21,8 +33,14 @@ body{
 }  */
 .middle{
     margin: 0px;
-    height: 350px;
+    height: 360px;
+    background-color: black;
+    border-top-right-radius: 44px;
+    border-top-left-radius: 44px;
     width: 100%;
+}
+.bottom{
+    background-color: black;
 }
 .left{
     width: 250px;
@@ -117,6 +135,8 @@ body{
     background-image: url(../img/london.svg);
     background-repeat: no-repeat;
     background-size: 60%;
+    flex-shrink: 0;
+    margin-right: 10px;
     background-position: bottom right;
     background-color: rgb(31, 28, 28);
     padding: 15px 0px 0px 15px;
@@ -307,9 +327,13 @@ body{
 .row1-col1{
     width: 300px;
     background-color: #2E2E2E;
+    padding: 10px 10px 10px 10px;
+}
+.row1-col1:hover{
     animation-name: example;
     animation-duration: 1s;
-    padding: 10px 10px 10px 10px;
+    box-shadow: 0px 0px 5px 1px #ccc;
+    transform: scale(0.99);
 }
 @keyframes example{
     0%   {background-color: #2E2E2E;}
@@ -322,7 +346,7 @@ body{
     animation-duration: 1s;
 }
 @keyframes example-1 {
-    100%   {left:500px;}
+    100%   {left:10px;}
 }
 .c1{
     width: 100%;
@@ -402,7 +426,14 @@ body{
 .city-cards-container{
     display: flex;
     width: calc(100% - 100px);
-    justify-content: space-evenly;
+    overflow-x: auto;
+}
+.city-cards-wrapper{
+    margin: 0px auto;
+    display: flex;
+}
+.city-cards-container::-webkit-scrollbar{
+    display: none;
 }
 .grid{
     width: 218.96px;
@@ -423,7 +454,6 @@ body{
     width: 20px;
 }
 .time-a1{
-    font-size: 11px;
     padding-bottom: 5px;
 }
 .row1{
@@ -443,14 +473,6 @@ body{
     font-style: normal;
     line-height: 28px;
   }
-  @media only screen and (max-width: 900px) {
-      .s1-1{
-          font-size: 17px;
-      }
-      .s1-2{
-          font-size: 15px;
-      }
-  }
 @media only screen and (max-width: 1100px) {
     .top {
         flex-direction: column;
@@ -460,9 +482,6 @@ body{
     .l1-media{
         align-items: center;
         padding-top: 30px;
-    }
-    .middle{
-        padding-top: 20px;
     }
     .mid_top{
         align-self:center;
@@ -474,29 +493,15 @@ body{
     .row1{
         width: 300px;
     }
-  }
-  @media only screen and (max-width: 1100px){
     .s2{
-      grid-template-columns: auto auto; 
-    }
-    .line{
-        margin-top: 37px;
-    }
-    .m_left{
-        font-size: 23px;
-        width: 60%;
-        text-align: center;
-    }
-}
-  @media only screen and (max-width: 700px){
-      .s2{
-        grid-template-columns: auto; 
+        grid-template-columns: auto auto; 
       }
-      .s1-1{
-          font-size: 16px;
+      .line{
+          margin-top: 37px;
       }
-      .s1-2{
-          font-size: 15px;
+      .m_left{
+          width: 60%;
+          text-align: center;
       }
   }
   @media only screen and (max-width: 700px) {
@@ -517,7 +522,6 @@ body{
     }
     .mid_top{
         margin-bottom: 15px;
-        width: auto;
     }
     .icon_align{
         display: flex;
@@ -548,21 +552,11 @@ body{
     .s2{
         width: auto;
         margin-left: 20px;
+        grid-template-columns: auto;
      }
      .row1{
          width: 180px;
-     }
-     .text{
-         font-size: 20px;
-     }
-     .ic{
-         width: 10px;
-     }
-     .sec1-s1{
-         align-items: center;
-         width: 80px;
-         justify-content: space-between;
-     }
+     }     
      .c1{
          font-size: 10px;
      }
@@ -577,30 +571,9 @@ body{
      }
 
     }
-@media only screen and (max-width: 1000px){
-    .text{
-        font-size: 12px;
-    }
-    .ic{
-        width: 15px;
-    }
-    .sec1-s1 {
-        padding: 0px 10px 0px 0px;
-        height: 22px;
-    }
-    .london-icon{
-        width: 120px;
-    }
-}
-@media only screen and (max-width: 920px){
-    .m_left{
-        width: 500px;
-    }
-}
 @media only screen and (max-width: 790px){
     .mid_top{
         display: flex;
-        width: auto;
         justify-content: space-between;
     }
     .m_left{
@@ -610,11 +583,15 @@ body{
         width: auto;
     }
 }
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 900px) {
+    .s1{
+        display: flex;
+        flex-direction: column;
+    }
     .s1-1{
-        font-size: 14px;
+        padding-left: 20px;
     }
     .s1-2{
-        font-size: 10px;
+        padding-right: 20px;
     }
 }
