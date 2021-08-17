@@ -8,8 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./css/style1.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     </head>
     <header>
         <body>
@@ -21,47 +21,65 @@
                         <div class="left_top">
                             <!-- city icon is displayed -->
                             <div class="l1">
-                                <img src="./././img/london.svg" width="80" height="80">
+                                <img id = "icon-change" src="./././img/anadyr.svg" width="80" height="80">
                             </div>
                             <!-- drop down menu for the city list is created -->
                             <div class="l2">  
                                 <select class="city" name="cities" id="cities">
-                                    <option value="New Delhi">New Delhi</option>
-                                    <option value="London">London</option>
-                                    <option value="Yangon">Yangon</option>
+                                    <option value="Anadyr">Anadyr</option>
+                                    <option value="Auckland">Auckland</option>
+                                    <option value="Bangkok">Bangkok</option>
+                                    <option value="Broken Hill">Broken Hill</option>
                                     <option value="Dublin">Dublin</option>
+                                    <option value="Jamaica">Jamaica</option>
+                                    <option value="Juba">Juba</option>
+                                    <option value="Karachi">Karachi</option>
+                                    <option value="Kolkata">Kolkata</option>
+                                    <option value="London">London</option>
+                                    <option value="Los Angeles">Los Angeles</option>
+                                    <option value="Maseru">Maseru</option>
+                                    <option value="Moscow">Moscow</option>
+                                    <option value="New York">New York</option>
+                                    <option value="Nome">Nome</option>
+                                    <option value="Perth">Perth</option>
+                                    <option value="Seoul">Seoul</option>
+                                    <option value="Troll">Troll</option>
+                                    <option value="Vienna">Vienna</option>
+                                    <option value="Vostok">Vostok</option>
+                                    <option value="Winnipeg">Winnipeg</option>
+                                    <option value="Yangon">Yangon</option>
                                 </select>
                             </div>
                         </div>
                             <div class="date_time">
                                 <img src="./img/sunnyIcon.svg" width="11px" style="margin-left: 90px;">
-                                <span class="time1">10:10:<small>44</small> <big>AM</big></span>
-                                <span class="date">22-July-2021</span>
+                                <span id="time1" class="time1"></span>
+                                <span id="date" class="date"></span>
                             </div>
                         </div>
                         <!-- Temperature in celcius, fahrenheit, precipitation, humidity value is displayed -->
                         <div class="grid">
                         <div class="grid-item">
                             <span class="ligh">Temp&#176;C<br></span>
-                            <span class="bold-val">25C </span>
+                            <span class="bold-val" id="temp1"> </span>
                         </div>
                         <div class="grid-item">
                             <div class="vl"></div>
                         </div>
                         <div class="grid-item">
                             <span class="ligh">Humidity<br></span>
-                            <span class="bold-val">26 %</span>
+                            <span class="bold-val" id="humid1"></span>
                         </div>
                         <div class="grid-item">
                             <span class="ligh">Temp F<br></span>
-                            <span class="bold-val">78F</span>
+                            <span class="bold-val" id="temp">78F</span>
                         </div>
                         <div class="grid-item">
                             <div class="vl"></div>
                         </div>
                         <div class="grid-item">
                             <span class="ligh">Precipitation<br></span>
-                                <span class="bold-val">0%</span>
+                                <span class="bold-val" id="precip1"></span>
                         </div>
                         </div>
                     </div>
@@ -76,74 +94,62 @@
                                     <img src="./img/cloudyIcon.svg" width="20px">
                                 </div>
                                 <div class="num">
-                                    <span>6</span>
+                                    <span id="cloud0">6</span>
                                 </div>
                             </div>
                             <div class="line"></div>
                             <div class="c1">
                                 <div class="r1-c1">
-                                    <span>11 AM</span>
+                                    <span id="t1"></span>
                                 </div>
                                 <div class="v1"></div>
                                 <div class="image">
                                     <img src="./img/rainyIcon.svg" width="20px">
                                 </div>
                                 <div class="num">
-                                    <span>7</span>
+                                    <span id="cloud1"></span>
                                 </div>
                             </div>
                             <div class="line"></div>
                             <div class="c1">
                                 <div class="r1-c1">
-                                    <span>12 PM</span>
+                                    <span id="t2"></span>
                                 </div>
                                 <div class="v1"></div>
                                 <div class="image">
                                     <img src="./img/windyIcon.svg" width="20px">
                                 </div>
                                 <div class="num">
-                                    <span>7</span>
+                                    <span id="cloud2"></span>
                                 </div>
                             </div>
                             <div class="line"></div>
                             <div class="c1">
                                 <div class="r1-c1">
-                                    <span>1 PM</span>
+                                    <span id="t3"></span>
                                 </div>
                                 <div class="v1"></div>
                                 <div class="image">
                                     <img src="./img/rainyIcon.svg" width="20px">
                                 </div>
                                 <div class="num">
-                                    <span>8</span>
+                                    <span id="cloud3"></span>
                                 </div>
                             </div>
                             <div class="line"></div>
                             <div class="c1">
                                 <div class="r1-c1">
-                                    <span>2 PM</span>
+                                    <span id="t4"></span>
                                 </div>
                                 <div class="v1"></div>
                                 <div class="image">
                                     <img src="./img/windyIcon.svg" width="20px">
                                 </div>
                                 <div class="num">
-                                    <span>8</span>
+                                    <span id="cloud4"></span>
                                 </div>
                             </div>
                             <div class="line"></div>
-                            <div class="c1">
-                                <div class="r1-c1">
-                                    <span>3 PM</span>
-                                </div>
-                                <div class="v1"></div>
-                                <div class="image">
-                                    <img src="./img/cloudyIcon.svg" width="20px">
-                                </div>
-                                <div class="num">
-                                    <span>6</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <!-- The middle section of the weather information page -->
@@ -473,6 +479,8 @@
                             </div>
                     </div>
             </div>
+            <script type="text/javascript" src="data.json"></script>
+            <script src="main.js"></script>
         </body>
     </header>
 </html>

@@ -93,7 +93,7 @@ body {
     background-color: rgb(87, 85, 85);
     color: white;
     height: 70px;
-    width: 130px;
+    width: 145px;
     margin-left: 100px;
     border: none;
     padding: 15px 10px;
@@ -168,7 +168,7 @@ body {
 /* styling of date in the top section*/
 .date {
     color: white;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 0px;
 }
 /* time styling in the top section */
