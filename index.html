@@ -25,34 +25,35 @@
                             </div>
                             <!-- drop down menu for the city list is created -->
                             <div class="l2">  
-                                <select class="city" name="cities" id="cities">
-                                    <option value="Anadyr">Anadyr</option>
-                                    <option value="Auckland">Auckland</option>
-                                    <option value="Bangkok">Bangkok</option>
-                                    <option value="Broken Hill">Broken Hill</option>
-                                    <option value="Dublin">Dublin</option>
-                                    <option value="Jamaica">Jamaica</option>
-                                    <option value="Juba">Juba</option>
-                                    <option value="Karachi">Karachi</option>
-                                    <option value="Kolkata">Kolkata</option>
-                                    <option value="London">London</option>
-                                    <option value="Los Angeles">Los Angeles</option>
-                                    <option value="Maseru">Maseru</option>
-                                    <option value="Moscow">Moscow</option>
-                                    <option value="New York">New York</option>
-                                    <option value="Nome">Nome</option>
-                                    <option value="Perth">Perth</option>
-                                    <option value="Seoul">Seoul</option>
-                                    <option value="Troll">Troll</option>
-                                    <option value="Vienna">Vienna</option>
-                                    <option value="Vostok">Vostok</option>
-                                    <option value="Winnipeg">Winnipeg</option>
-                                    <option value="Yangon">Yangon</option>
-                                </select>
+                                <input list ="name-city"class="city" name="cities" id="cities">
+                                <datalist id="name-city">
+                                        <option value="Anadyr">
+                                        <option value="Auckland">
+                                        <option value="Bangkok">
+                                        <option value="Broken Hill">
+                                        <option value="Dublin">
+                                        <option value="Jamaica">
+                                        <option value="Juba">
+                                        <option value="Karachi">
+                                        <option value="Kolkata">
+                                        <option value="London">
+                                        <option value="Los Angeles">
+                                        <option value="Maseru">
+                                        <option value="Moscow">
+                                        <option value="New York">
+                                        <option value="Nome">
+                                        <option value="Perth">
+                                        <option value="Seoul">
+                                        <option value="Troll">
+                                        <option value="Vienna">
+                                        <option value="Vostok">
+                                        <option value="Winnipeg">
+                                        <option value="Yangon">
+                                </datalist>
                             </div>
                         </div>
                             <div class="date_time">
-                                <img src="./img/sunnyIcon.svg" width="11px" style="margin-left: 90px;">
+                                <img id="am-pm" src="./img/sunnyIcon.svg" width="11px" style="margin-left: 90px;">
                                 <span id="time1" class="time1"></span>
                                 <span id="date" class="date"></span>
                             </div>
@@ -72,7 +73,7 @@
                         </div>
                         <div class="grid-item">
                             <span class="ligh">Temp F<br></span>
-                            <span class="bold-val" id="temp">78F</span>
+                            <span class="bold-val" id="temp2">78F</span>
                         </div>
                         <div class="grid-item">
                             <div class="vl"></div>
@@ -87,11 +88,11 @@
                         <div class="cloud">
                             <div class="c1">
                                 <div class="r1-c1">
-                                    <span>NOW</span>
+                                    <span id="now">NOW</span>
                                 </div>
                                 <div class="v1"></div>
                                 <div class="image">
-                                    <img src="./img/cloudyIcon.svg" width="20px">
+                                    <img src="./img/cloudyIcon.svg" id="img2" width="20px">
                                 </div>
                                 <div class="num">
                                     <span id="cloud0">6</span>
@@ -104,7 +105,7 @@
                                 </div>
                                 <div class="v1"></div>
                                 <div class="image">
-                                    <img src="./img/rainyIcon.svg" width="20px">
+                                    <img src="./img/rainyIcon.svg" id="img3" width="20px">
                                 </div>
                                 <div class="num">
                                     <span id="cloud1"></span>
@@ -117,7 +118,7 @@
                                 </div>
                                 <div class="v1"></div>
                                 <div class="image">
-                                    <img src="./img/windyIcon.svg" width="20px">
+                                    <img src="./img/windyIcon.svg" id="img4" width="20px">
                                 </div>
                                 <div class="num">
                                     <span id="cloud2"></span>
@@ -130,7 +131,7 @@
                                 </div>
                                 <div class="v1"></div>
                                 <div class="image">
-                                    <img src="./img/rainyIcon.svg" width="20px">
+                                    <img src="./img/rainyIcon.svg" id="img5" width="20px">
                                 </div>
                                 <div class="num">
                                     <span id="cloud3"></span>
@@ -143,7 +144,7 @@
                                 </div>
                                 <div class="v1"></div>
                                 <div class="image">
-                                    <img src="./img/windyIcon.svg" width="20px">
+                                    <img src="./img/windyIcon.svg" id="img6" width="20px">
                                 </div>
                                 <div class="num">
                                     <span id="cloud4"></span>
@@ -162,45 +163,56 @@
                             <div class="m_right">
                                 <div class="icon-small">
                                     <div class="icon_align">
-                                        <img class="sticky" src="./img/sunnyIcon.svg"> 
-                                        <img class="sticky" src="./img/snowflakeIcon.svg">
-                                        <img class="sticky" src="./img/windyIcon.svg">
+                                        <div class="line-icon">
+                                            <img onclick="myFunction1()" class="sticky" src="./img/sunnyIcon.svg"> 
+                                            <div id= "blue" class="h-line-blue"></div>
+                                        </div>
+                                        <div class="line-icon">
+                                            <img onclick="myFunction2()" class="sticky" src="./img/snowflakeIcon.svg">
+                                            <div id= "blue1" class="h-line-blue"></div>
+                                        </div>
+                                        <div class="line-icon">
+                                            <img onclick="myFunction3()" class="sticky" src="./img/windyIcon.svg">
+                                            <div id= "blue2" class="h-line-blue"></div>
+                                        </div>
                                     </div>
                                     <div class="msg">
                                         <span>Display Top</span>
                                     </div>
-                                    <div class="drop">
-                                        <input type="number" id="quantity" name="quantity" min="3" max="10" value="4">
+                                    <div class="drop" >
+                                        <input onkeypress="spin()" type="number" id="quantity" name="quantity" min="3" max="10" value="3">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Container for city cards -->
                         <div class="mid_bottom">
-                            <span class="arrow">&#11160;</span>
-                                <div class="city-cards-container">
+                            <button id="arrow-left" type="button" class="arrow-left">
+                                <img src="./img/backwardArrow.svg">
+                            </button>
+                                <div id="city-cards-container" class="city-cards-container">
                                     <div class="city-cards-wrapper">
                                         <!-- One city card is displayed -->
-                                        <div class="sec1">
+                                        <div id="sec1" class="sec1">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span class="text" style="text-align:left;">
+                                                    <span id="city-val" class="text" style="text-align:left;">
                                                         London
                                                     </span>
-                                                    <img class="ic" src="./img/sunnyIcon.svg" width="20px">
+                                                    <img id="city-icon" class="ic" src="./img/sunnyIcon.svg" width="20px">
                                                 </div>
-                                                <span class="text">25<span>&#176;</span> C</span>
+                                                <span id = "city-temp"class="text">25<span>&#176;</span> C</span>
                                             </div>
                                             <div class="a1">
                                                 <div class="time-a1">
-                                                    <span class="time-10">10:00 AM</span>
+                                                    <span id="time-10" class="time-10">10:00 AM</span>
                                                 </div>
                                                 <div class="date-a1">
-                                                    <span>2-Mar-2021</span>
+                                                    <span id="date-a1">2-Mar-2021</span>
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span style="font-size: 13px;">53%</span>
+                                                    <span id="hum" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -208,29 +220,29 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span style="font-size: 13px;">10%</span>
+                                                    <span id="pre" style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <!-- One city card is displayed -->
-                                        <div class="sec1">
+                                        <div id="sec1-1" class="sec1" >
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span class="text" style="text-align:left;">London</span>
-                                                    <img class="ic" src="./img/sunnyIcon.svg" width="20px">
+                                                    <span id="city-val1" class="text" style="text-align:left;">London</span>
+                                                    <img id="city-icon1" class="ic" src="./img/sunnyIcon.svg" width="20px">
                                                 </div>
-                                                <span class="text">25<span>&#176;</span> C</span>
+                                                <span id="city-temp1" class="text">25<span>&#176;</span> C</span>
                                             </div>
                                             <div class="a1">
                                                 <div class="time-a1">
-                                                    <span class="time-10">10:00 AM</span>
+                                                    <span id="time-10-1" class="time-10">10:00 AM</span>
                                                 </div>
                                                 <div class="date-a1">
-                                                    <span>2-Mar-2021</span>
+                                                    <span id="date-a1-1">2-Mar-2021</span>
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span style="font-size: 13px;">53%</span>
+                                                    <span id="hum1" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;"> 
@@ -238,29 +250,29 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span  style="font-size: 13px;">10%</span>
+                                                    <span id="pre1" style="font-size: 13px;">10%</span>
                                                 </div>
-                                            </div>
+                                          </div>
                                         </div>
                                         <!-- One city card is displayed -->
-                                        <div class="sec1">
+                                        <div id="sec1-2" class="sec1">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span class="text" style="text-align:left;">London</span>
-                                                    <img class="ic" src="./img/sunnyIcon.svg" width="20px">
+                                                    <span id="city-val2" class="text" style="text-align:left;">London</span>
+                                                    <img id="city-icon2" class="ic" src="./img/sunnyIcon.svg" width="20px">
                                                 </div>
-                                                <span class="text">25<span>&#176;</span> C</span>
+                                                <span id="city-temp2" class="text">25<span>&#176;</span> C</span>
                                             </div>
                                             <div class="a1">
                                                 <div class="time-a1">
-                                                    <span class="time-10">10:00 AM</span>
+                                                    <span id="time-10-2"class="time-10">10:00 AM</span>
                                                 </div>
                                                 <div class="date-a1">
-                                                    <span>2-Mar-2021</span>
+                                                    <span id="date-a1-2"> 2-Mar-2021</span>
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span  style="font-size: 13px;">53%</span>
+                                                    <span id="hum2" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -268,29 +280,29 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span  style="font-size: 13px;">10%</span>
+                                                    <span id="pre2" style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- One city card is displayed -->
-                                        <div class="sec1">
+                                         <!-- One city card is displayed -->
+                                         <div class="sec1" id="sec1-3">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span class="text" style="text-align:left;">London</span>
-                                                    <img class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                    <span id="city-val3" class="text" style="text-align:left;">London</span>
+                                                    <img id="city-icon3" class="ic" src="./img/sunnyIcon.svg" width="15px">
                                                 </div>
-                                                <span class="text" id="text1">25<span>&#176;</span> C</span>
+                                                <span id="city-temp3" class="text" id="text1">25<span>&#176;</span> C</span>
                                             </div>
                                             <div class="a1">
                                                 <div class="time-a1">
-                                                    <span class="time-10">10:00 AM</span>
+                                                    <span id="time-10-3" class="time-10">10:00 AM</span>
                                                 </div>
                                                 <div class="date-a1">
-                                                    <span>2-Mar-2021</span>
+                                                    <span id="date-a1-3">2-Mar-2021</span>
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span  style="font-size: 13px;">53%</span>
+                                                    <span id="hum3" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -298,13 +310,315 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span  style="font-size: 13px;">10%</span>
+                                                    <span id="pre3"  style="font-size: 13px;">10%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- One city card is displayed -->
+                                        <div class="sec1" id="sec1-4">
+                                            <div class="sec1-s1">
+                                                <div class="london-icon">
+                                                    <span id="city-val4" class="text" style="text-align:left;">London</span>
+                                                    <img id="city-icon4" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                </div>
+                                                <span id="city-temp4" class="text" id="text1">25<span>&#176;</span> C</span>
+                                            </div>
+                                            <div class="a1">
+                                                <div class="time-a1">
+                                                    <span id="time-10-4" class="time-10">10:00 AM</span>
+                                                </div>
+                                                <div class="date-a1">
+                                                    <span id="date-a1-4">2-Mar-2021</span>
+                                                </div>
+                                                <div class="a1_1">
+                                                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="hum4" style="font-size: 13px;">53%</span>
+                                                </div>
+                                                <div class="a1_2">
+                                                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span  style="font-size: 13px;">5km/hr</span>
+                                                </div>
+                                                <div class="a1_3">
+                                                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="pre4"  style="font-size: 13px;">10%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- One city card is displayed -->
+                                        <div class="sec1" id="sec1-5">
+                                            <div class="sec1-s1">
+                                                <div class="london-icon">
+                                                    <span id="city-val5" class="text" style="text-align:left;">London</span>
+                                                    <img id="city-icon5" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                </div>
+                                                <span id="city-temp5" class="text" id="text1">25<span>&#176;</span> C</span>
+                                            </div>
+                                            <div class="a1">
+                                                <div class="time-a1">
+                                                    <span id="time-10-5" class="time-10">10:00 AM</span>
+                                                </div>
+                                                <div class="date-a1">
+                                                    <span id="date-a1-5">2-Mar-2021</span>
+                                                </div>
+                                                <div class="a1_1">
+                                                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="hum5" style="font-size: 13px;">53%</span>
+                                                </div>
+                                                <div class="a1_2">
+                                                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span  style="font-size: 13px;">5km/hr</span>
+                                                </div>
+                                                <div class="a1_3">
+                                                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="pre5"  style="font-size: 13px;">10%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- One city card is displayed -->
+                                        <div class="sec1" id="sec1-6">
+                                            <div class="sec1-s1">
+                                                <div class="london-icon">
+                                                    <span id="city-val6" class="text" style="text-align:left;">London</span>
+                                                    <img id="city-icon6" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                </div>
+                                                <span id="city-temp6" class="text" id="text1">25<span>&#176;</span> C</span>
+                                            </div>
+                                            <div class="a1">
+                                                <div class="time-a1">
+                                                    <span id="time-10-6" class="time-10">10:00 AM</span>
+                                                </div>
+                                                <div class="date-a1">
+                                                    <span id="date-a1-6">2-Mar-2021</span>
+                                                </div>
+                                                <div class="a1_1">
+                                                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="hum6" style="font-size: 13px;">53%</span>
+                                                </div>
+                                                <div class="a1_2">
+                                                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span  style="font-size: 13px;">5km/hr</span>
+                                                </div>
+                                                <div class="a1_3">
+                                                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="pre6"  style="font-size: 13px;">10%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- One city card is displayed -->
+                                        <div class="sec1" id="sec1-7">
+                                            <div class="sec1-s1">
+                                                <div class="london-icon">
+                                                    <span id="city-val7" class="text" style="text-align:left;">London</span>
+                                                    <img id="city-icon7" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                </div>
+                                                <span id="city-temp7" class="text" id="text1">25<span>&#176;</span> C</span>
+                                            </div>
+                                            <div class="a1">
+                                                <div class="time-a1">
+                                                    <span id="time-10-7" class="time-10">10:00 AM</span>
+                                                </div>
+                                                <div class="date-a1">
+                                                    <span id="date-a1-7">2-Mar-2021</span>
+                                                </div>
+                                                <div class="a1_1">
+                                                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="hum7" style="font-size: 13px;">53%</span>
+                                                </div>
+                                                <div class="a1_2">
+                                                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span  style="font-size: 13px;">5km/hr</span>
+                                                </div>
+                                                <div class="a1_3">
+                                                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="pre7"  style="font-size: 13px;">10%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- One city card is displayed -->
+                                        <div class="sec1" id="sec1-8">
+                                            <div class="sec1-s1">
+                                                <div class="london-icon">
+                                                    <span id="city-val8" class="text" style="text-align:left;">London</span>
+                                                    <img id="city-icon8" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                </div>
+                                                <span id="city-temp8" class="text" id="text1">25<span>&#176;</span> C</span>
+                                            </div>
+                                            <div class="a1">
+                                                <div class="time-a1">
+                                                    <span id="time-10-8" class="time-10">10:00 AM</span>
+                                                </div>
+                                                <div class="date-a1">
+                                                    <span id="date-a1-8">2-Mar-2021</span>
+                                                </div>
+                                                <div class="a1_1">
+                                                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="hum8" style="font-size: 13px;">53%</span>
+                                                </div>
+                                                <div class="a1_2">
+                                                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span  style="font-size: 13px;">5km/hr</span>
+                                                </div>
+                                                <div class="a1_3">
+                                                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="pre8"  style="font-size: 13px;">10%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- One city card is displayed -->
+                                        <div class="sec1" id="sec1-9">
+                                            <div class="sec1-s1">
+                                                <div class="london-icon">
+                                                    <span id="city-val9" class="text" style="text-align:left;">London</span>
+                                                    <img id="city-icon9" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                </div>
+                                                <span id="city-temp9" class="text" id="text1">25<span>&#176;</span> C</span>
+                                            </div>
+                                            <div class="a1">
+                                                <div class="time-a1">
+                                                    <span id="time-10-9" class="time-10">10:00 AM</span>
+                                                </div>
+                                                <div class="date-a1">
+                                                    <span id="date-a1-9">2-Mar-2021</span>
+                                                </div>
+                                                <div class="a1_1">
+                                                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="hum9" style="font-size: 13px;">53%</span>
+                                                </div>
+                                                <div class="a1_2">
+                                                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span  style="font-size: 13px;">5km/hr</span>
+                                                </div>
+                                                <div class="a1_3">
+                                                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="pre9"  style="font-size: 13px;">10%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- One city card is displayed -->
+                                        <div class="sec1" id="sec1-10">
+                                            <div class="sec1-s1">
+                                                <div class="london-icon">
+                                                    <span id="city-val10" class="text" style="text-align:left;">London</span>
+                                                    <img id="city-icon10" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                </div>
+                                                <span id="city-temp10" class="text" id="text1">25<span>&#176;</span> C</span>
+                                            </div>
+                                            <div class="a1">
+                                                <div class="time-a1">
+                                                    <span id="time-10-10" class="time-10">10:00 AM</span>
+                                                </div>
+                                                <div class="date-a1">
+                                                    <span id="date-a1-10">2-Mar-2021</span>
+                                                </div>
+                                                <div class="a1_1">
+                                                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="hum10" style="font-size: 13px;">53%</span>
+                                                </div>
+                                                <div class="a1_2">
+                                                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span  style="font-size: 13px;">5km/hr</span>
+                                                </div>
+                                                <div class="a1_3">
+                                                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="pre10"  style="font-size: 13px;">10%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <!-- One city card is displayed -->
+                                         <div class="sec1" id="sec1-11">
+                                            <div class="sec1-s1">
+                                                <div class="london-icon">
+                                                    <span id="city-val11" class="text" style="text-align:left;">London</span>
+                                                    <img id="city-icon11" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                </div>
+                                                <span id="city-temp11" class="text" id="text1">25<span>&#176;</span> C</span>
+                                            </div>
+                                            <div class="a1">
+                                                <div class="time-a1">
+                                                    <span id="time-10-11" class="time-10">10:00 AM</span>
+                                                </div>
+                                                <div class="date-a1">
+                                                    <span id="date-a1-11">2-Mar-2021</span>
+                                                </div>
+                                                <div class="a1_1">
+                                                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="hum11" style="font-size: 13px;">53%</span>
+                                                </div>
+                                                <div class="a1_2">
+                                                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span  style="font-size: 13px;">5km/hr</span>
+                                                </div>
+                                                <div class="a1_3">
+                                                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="pre11"  style="font-size: 13px;">10%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- One city card is displayed -->
+                                        <div class="sec1" id="sec1-12">
+                                            <div class="sec1-s1">
+                                                <div class="london-icon">
+                                                    <span id="city-val12" class="text" style="text-align:left;">London</span>
+                                                    <img id="city-icon12" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                </div>
+                                                <span id="city-temp12" class="text" id="text1">25<span>&#176;</span> C</span>
+                                            </div>
+                                            <div class="a1">
+                                                <div class="time-a1">
+                                                    <span id="time-10-12" class="time-10">10:00 AM</span>
+                                                </div>
+                                                <div class="date-a1">
+                                                    <span id="date-a1-12">2-Mar-2021</span>
+                                                </div>
+                                                <div class="a1_1">
+                                                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="hum12" style="font-size: 13px;">53%</span>
+                                                </div>
+                                                <div class="a1_2">
+                                                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span  style="font-size: 13px;">5km/hr</span>
+                                                </div>
+                                                <div class="a1_3">
+                                                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="pre12"  style="font-size: 13px;">10%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- One city card is displayed -->
+                                        <div class="sec1" id="sec1-13">
+                                            <div class="sec1-s1">
+                                                <div class="london-icon">
+                                                    <span id="city-val13" class="text" style="text-align:left;">London</span>
+                                                    <img id="city-icon13" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                </div>
+                                                <span id="city-temp13" class="text" id="text1">25<span>&#176;</span> C</span>
+                                            </div>
+                                            <div class="a1">
+                                                <div class="time-a1">
+                                                    <span id="time-10-13" class="time-10">10:00 AM</span>
+                                                </div>
+                                                <div class="date-a1">
+                                                    <span id="date-a1-13">2-Mar-2021</span>
+                                                </div>
+                                                <div class="a1_1">
+                                                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="hum13" style="font-size: 13px;">53%</span>
+                                                </div>
+                                                <div class="a1_2">
+                                                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span  style="font-size: 13px;">5km/hr</span>
+                                                </div>
+                                                <div class="a1_3">
+                                                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                                                    <span id="pre13"  style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            <span class="arrow">&#11162;</span>
+                            <button id="arrow-right" type="button" class="arrow-right">
+                                <img src="./img/forwardArrow.svg">
+                            </button>
                         </div>
                     </section>
                     <!-- The bottom most section of the weather information page -->
@@ -479,8 +793,9 @@
                             </div>
                     </div>
             </div>
-            <script type="text/javascript" src="data.json"></script>
+            <!-- <script type="text/javascript" src="data.json"></script> -->
             <script src="main.js"></script>
+            <script src="array.js"></script>
         </body>
     </header>
 </html>

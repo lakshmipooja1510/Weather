@@ -209,13 +209,39 @@ body {
     position: sticky;
     top: 0px;
 }
+.line-icon{
+    display: block;
+}
+.h-line-blue {
+    height: 2px;
+    width: 19px;
+    background: #00C0F1;
+}
 /* arrow in the left and right side of the middle section */
-.arrow {
+.arrow-left{
+    padding: 0px 8px 0px 8px;
     align-items: center;
-    height: 50px;
+    height: 40px;
     justify-content: center;
+    margin: 0px 5px 0px 5px;
     display: flex;
-    width: 50px;
+    width: 40px;
+    border-radius: 100%;
+    color: #000;
+    background-color: white;
+    font-size: 35px;
+}
+.arrow-right{
+    padding: 0px 8px 0px 8px;
+    align-items: center;
+    height: 40px;
+    justify-content: center;
+    margin: 0px 5px 0px 5px;
+    display: flex;
+    width: 40px;
+    border-radius: 100%;
+    color: #000;
+    background-color: white;
     font-size: 35px;
 }
 /* city cards styling in the middle section*/
