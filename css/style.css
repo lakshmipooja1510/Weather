@@ -1,8 +1,8 @@
-/* style sheet for weather information page */
+/* .......................................style sheet for weather information page ..........................*/
 * {
     box-sizing: border-box;
 }
-/* scroll bar styling */
+/*........................................... scroll bar styling............................................ */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -23,7 +23,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-/* styling for the top section of weather information page */
+/* ........................styling for the top section of weather information page .........................*/
 .top {
     align-items: center;
     display: flex;
@@ -31,18 +31,18 @@ body {
     width: 100%;
     height: 280px;
 }
-/* styling for the city icon, city drop down  and the time date of the top section*/
+/* .............styling for the city icon, city drop down  and the time date of the top section..............*/
 .left {
     width: 250px;
     padding: 0px 25px;
 }
-/* the city icon and the dropdown container styling and positioning in the top section*/
+/*............the city icon and the dropdown container styling and positioning in the top section............*/
 .left_top {
     display: flex;
     width: 250px;
     height: 100px;
 }
-/* grid item of the top section */
+/*.........................................grid item of the top section......................................*/
 .grid {
     width: 218.96px;
     height: 191px;
@@ -51,7 +51,7 @@ body {
     grid-template-columns: auto auto auto;
     padding: 10px 10px 10px 28px;
 }
-/* each grid elements in the top section */
+/*................................... each grid elements in the top section .................................*/
 .grid-item {
     display: flex;
     padding: 5px;
@@ -59,36 +59,36 @@ body {
     flex-direction: column;
     align-items: center;
 }
-/* grid styling */
+/*............................................ grid styling ..................................................*/
 .ligh {
     font-size: 14px;
     margin: 0px;
 }
-/* grid styling */
+/*........................................... grid styling ..................................................*/
 .bold-val {
     font-size: 22px;
     font-weight: bolder;
     margin: 10px;
 }
-/* city icon styling and positioning in the top section*/
+/*............................ city icon styling and positioning in the top section..........................*/
 .l1 {
     position: absolute;
     width: 123px;
     height: 102px;
 }
-/* container for the drop down in the top section */
+/* ............................container for the drop down in the top section ...............................*/
 .l2 {
     width: 250px;
     height: 100px;
     padding-top: 9px;
     position: absolute;
 }
-/* styling for the vertical line in the top section */
+/*............................... styling for the vertical line in the top section.......................... */
 .vl {
     height: 55px;
     border-left: 1px solid white;
 }
-/* drop down in the top section */
+/*...................................... drop down in the top section .......................................*/
 .city {
     background-color: rgb(87, 85, 85);
     color: white;
@@ -102,7 +102,7 @@ body {
     font-size: 19px;
     line-height: 47px;
 }
-/* each column of the top right section representing time icon and temperature */
+/* ......................each column of the top right section representing time icon and temperature ........*/
 .c1 {
     width: 100%;
     height: 100%;
@@ -113,7 +113,7 @@ body {
     justify-content: center;
     font-weight: lighter;
 }
-/* time in the top right section */
+/*..................................... time in the top right section ......................................*/
 .r1-c1 {
     text-align: center;
     font-size: 12px;
@@ -121,14 +121,14 @@ body {
     color: white;
     width: 40px;
 }
-/* vertical line stlying for the top right section */
+/* ...........................vertical line stlying for the top right section ..............................*/
 .v1 {
     height: 10px;
     border-left: 1px solid white;
     margin-bottom: 10px;
     margin-top: 10px;
 }
-/* line between 2 columns in the top right section */
+/*........................... line between 2 columns in the top right section ..............................*/
 .line {
     height: 13px;
     border-left: 1px solid white;
@@ -209,6 +209,10 @@ body {
     position: sticky;
     top: 0px;
 }
+.time-t{
+    color: white;
+    font-size: 13px;
+}
 .line-icon{
     display: block;
 }
@@ -262,6 +266,11 @@ body {
 /* styling for the icon inside the city cards of the middle section */
 .ic {
     width: 20px;
+    background-image: url(../img/sunnyIcon.svg);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-style: none;
 }
 /* styling display top in the middle section*/
 .msg {
@@ -363,11 +372,11 @@ body {
     height: 260px;
     background-image: url(../img/london.svg);
     background-repeat: no-repeat;
-    background-size: 60%;
+    background-size: 50%;
     flex-shrink: 0;
     margin-right: 10px;
     background-position: bottom right;
-    background-color: rgb(31, 28, 28);
+    background-color: #2e2e2e;
     padding: 15px 0px 0px 15px;
 }
 /* icon position of the upper part of the middle section */
@@ -384,6 +393,12 @@ body {
     font-size: 23px;
     font-style: normal;
     line-height: 28px;
+}
+.text-1{
+  font-weight: 500;
+  font-size: 23px;
+  font-style: normal;
+  line-height: 28px;
 }
 /* styling of the city, icon and temp inside the card of the middle section*/
 .sec1-s1 {
@@ -432,7 +447,7 @@ body {
     padding: 10px;
     justify-content: space-evenly;
 }
-/* styling for the continent name inside the city card in the bottom section */
+/* ...............styling for the continent name inside the city card in the bottom section ................*/
 .conti {
     color: rgb(255, 244, 97, 1);
     margin-top: 5px;
@@ -442,40 +457,40 @@ body {
     font-size: 18px;
     line-height: 23px;
 }
-/* styling for the town name inside the city card in the bottom section */
+/* ...............styling for the town name inside the city card in the bottom section .....................*/
 .town {
     font-style: normal;
     font-weight: 200;
     font-size: 13px;
     color: white;
 }
-/* styling for the precipitaion percentage inside the city card in the bottom section   */
+/* ..........styling for the precipitaion percentage inside the city card in the bottom section .............*/
 .percent {
     font-style: normal;
     font-weight: normal;
     font-size: 13px;
     color: white;
 }
-/* styling of the rain percent in the city card of the bottom section */
+/*.................... styling of the rain percent in the city card of the bottom section ...................*/
 .rain-percent {
     display: flex;
     align-items: center;
 }
-/* top part of the city card in the bottom section styling */
+/* ..................................top part of the city card in the bottom section styling................ */
 .up {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-bottom: 5px;
 }
-/* bottom part of the city card in the bottom section styling */
+/* .........................bottom part of the city card in the bottom section styling .....................*/
 .down {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-top: 5px;
 }
-/* temperature value in the city card of the bottom section */
+/* ....................temperature value in the city card of the bottom section .............................*/
 .val {
     font-style: normal;
     font-weight: 500;
@@ -483,13 +498,13 @@ body {
     line-height: 33px;
     color: white;
 }
-/* each city card styling in the bottom section */
+/* ............................each city card styling in the bottom section ..................................*/
 .row1-col1 {
     width: 300px;
     background-color: #2e2e2e;
     padding: 10px 10px 10px 10px;
 }
-/* on hovering the shadow, transform and annimation applied*/
+/*.......................... on hovering the shadow, transform and annimation applied........................*/
 .row1-col1:hover {
     animation-name: example;
     animation-duration: 1s;
@@ -507,17 +522,38 @@ body {
         background-color: #2e2e2e;
     }
 }
-/* drop icon in the city card of the bottom section */
+/*............................... drop icon in the city card of the bottom section ...........................*/
 .drop-1 {
     width: 15px;
     animation-name: example-1;
     animation-duration: 1s;
+}
+/*..................... temperature sort element is given as button in the bottom section ....................*/
+.temp-name
+{
+    border: none;
+    padding: 0;
+    background:none;
+    color: white;
+    font-family: 'roboto';
+    font-size: 20px;
+}
+/*......................continent sort element is given as button in the bottom section......................*/
+.conti-name
+{
+    border: none;
+    padding: 0;
+    background:none;
+    color: white;
+    font-family: 'roboto';
+    font-size: 20px;
 }
 @keyframes example-1 {
     100% {
         left: 10px;
     }
 }
+/* .............................media query for diffeernt size and resolution ...............................*/
 @media only screen and (max-width: 1100px) {
     .top {
         flex-direction: column;

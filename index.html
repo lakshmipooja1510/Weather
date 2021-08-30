@@ -164,15 +164,15 @@
                                 <div class="icon-small">
                                     <div class="icon_align">
                                         <div class="line-icon">
-                                            <img onclick="myFunction1()" class="sticky" src="./img/sunnyIcon.svg"> 
+                                            <img onclick="myFunction1()" id = "sticky-1" class="sticky" src="./img/sunnyIcon.svg"> 
                                             <div id= "blue" class="h-line-blue"></div>
                                         </div>
                                         <div class="line-icon">
-                                            <img onclick="myFunction2()" class="sticky" src="./img/snowflakeIcon.svg">
+                                            <img onclick="myFunction3()" id="sticky-2" class="sticky" src="./img/snowflakeIcon.svg">
                                             <div id= "blue1" class="h-line-blue"></div>
                                         </div>
                                         <div class="line-icon">
-                                            <img onclick="myFunction3()" class="sticky" src="./img/windyIcon.svg">
+                                            <img onclick="myFunction2()" id="sticky-3" class="sticky" src="./img/windyIcon.svg">
                                             <div id= "blue2" class="h-line-blue"></div>
                                         </div>
                                     </div>
@@ -180,7 +180,7 @@
                                         <span>Display Top</span>
                                     </div>
                                     <div class="drop" >
-                                        <input onkeypress="spin()" type="number" id="quantity" name="quantity" min="3" max="10" value="3">
+                                        <input onchange="spin()" type="number" id="quantity" name="quantity" min="3" max="10" >
                                     </div>
                                 </div>
                             </div>
@@ -196,10 +196,10 @@
                                         <div id="sec1" class="sec1">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val" class="text" style="text-align:left;">
+                                                    <span id="city-val" class="text-1" style="text-align:left;">
                                                         London
                                                     </span>
-                                                    <img id="city-icon" class="ic" src="./img/sunnyIcon.svg" width="20px">
+                                                    <div id="city-icon" class="ic"></div>
                                                 </div>
                                                 <span id = "city-temp"class="text">25<span>&#176;</span> C</span>
                                             </div>
@@ -212,7 +212,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -220,7 +220,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre" style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre" style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -228,8 +228,8 @@
                                         <div id="sec1-1" class="sec1" >
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val1" class="text" style="text-align:left;">London</span>
-                                                    <img id="city-icon1" class="ic" src="./img/sunnyIcon.svg" width="20px">
+                                                    <span id="city-val1" class="text-1" style="text-align:left;">London</span>
+                                                    <div id="city-icon1" class="ic"></div>
                                                 </div>
                                                 <span id="city-temp1" class="text">25<span>&#176;</span> C</span>
                                             </div>
@@ -242,7 +242,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum1" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum1" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;"> 
@@ -250,7 +250,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre1" style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre1" style="font-size: 13px;">10%</span>
                                                 </div>
                                           </div>
                                         </div>
@@ -258,8 +258,8 @@
                                         <div id="sec1-2" class="sec1">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val2" class="text" style="text-align:left;">London</span>
-                                                    <img id="city-icon2" class="ic" src="./img/sunnyIcon.svg" width="20px">
+                                                    <span id="city-val2" class="text-1" style="text-align:left;">London</span>
+                                                    <div id="city-icon2" class="ic" ></div>
                                                 </div>
                                                 <span id="city-temp2" class="text">25<span>&#176;</span> C</span>
                                             </div>
@@ -272,7 +272,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum2" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum2" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -280,7 +280,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre2" style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre2" style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -288,8 +288,8 @@
                                          <div class="sec1" id="sec1-3">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val3" class="text" style="text-align:left;">London</span>
-                                                    <img id="city-icon3" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                    <span id="city-val3" class="text-1" style="text-align:left;">London</span>
+                                                    <div id="city-icon3" class="ic"></div>
                                                 </div>
                                                 <span id="city-temp3" class="text" id="text1">25<span>&#176;</span> C</span>
                                             </div>
@@ -302,7 +302,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum3" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum3" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -310,7 +310,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre3"  style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre3"  style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -318,8 +318,8 @@
                                         <div class="sec1" id="sec1-4">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val4" class="text" style="text-align:left;">London</span>
-                                                    <img id="city-icon4" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                    <span id="city-val4" class="text-1" style="text-align:left;">London</span>
+                                                    <div id="city-icon4" class="ic"></div>
                                                 </div>
                                                 <span id="city-temp4" class="text" id="text1">25<span>&#176;</span> C</span>
                                             </div>
@@ -332,7 +332,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum4" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum4" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -340,7 +340,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre4"  style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre4"  style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -348,8 +348,8 @@
                                         <div class="sec1" id="sec1-5">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val5" class="text" style="text-align:left;">London</span>
-                                                    <img id="city-icon5" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                    <span id="city-val5" class="text-1" style="text-align:left;">London</span>
+                                                    <div id="city-icon5" class="ic" ></div>
                                                 </div>
                                                 <span id="city-temp5" class="text" id="text1">25<span>&#176;</span> C</span>
                                             </div>
@@ -362,7 +362,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum5" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum5" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -370,7 +370,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre5"  style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre5"  style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -378,8 +378,8 @@
                                         <div class="sec1" id="sec1-6">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val6" class="text" style="text-align:left;">London</span>
-                                                    <img id="city-icon6" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                    <span id="city-val6" class="text-1" style="text-align:left;">London</span>
+                                                    <div id="city-icon6" class="ic"></div>
                                                 </div>
                                                 <span id="city-temp6" class="text" id="text1">25<span>&#176;</span> C</span>
                                             </div>
@@ -392,7 +392,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum6" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum6" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -400,7 +400,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre6"  style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre6"  style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -408,8 +408,8 @@
                                         <div class="sec1" id="sec1-7">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val7" class="text" style="text-align:left;">London</span>
-                                                    <img id="city-icon7" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                    <span id="city-val7" class="text-1" style="text-align:left;">London</span>
+                                                    <div id="city-icon7" class="ic" ></div>
                                                 </div>
                                                 <span id="city-temp7" class="text" id="text1">25<span>&#176;</span> C</span>
                                             </div>
@@ -422,7 +422,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum7" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum7" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -430,7 +430,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre7"  style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre7"  style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -438,8 +438,8 @@
                                         <div class="sec1" id="sec1-8">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val8" class="text" style="text-align:left;">London</span>
-                                                    <img id="city-icon8" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                    <span id="city-val8" class="text-1" style="text-align:left;">London</span>
+                                                    <div id="city-icon8" class="ic"> </div>
                                                 </div>
                                                 <span id="city-temp8" class="text" id="text1">25<span>&#176;</span> C</span>
                                             </div>
@@ -452,7 +452,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum8" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum8" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -460,7 +460,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre8"  style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre8"  style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -468,8 +468,8 @@
                                         <div class="sec1" id="sec1-9">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val9" class="text" style="text-align:left;">London</span>
-                                                    <img id="city-icon9" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                    <span id="city-val9" class="text-1" style="text-align:left;">London</span>
+                                                    <div id="city-icon9" class="ic" ></div>
                                                 </div>
                                                 <span id="city-temp9" class="text" id="text1">25<span>&#176;</span> C</span>
                                             </div>
@@ -482,7 +482,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum9" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum9" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -490,7 +490,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre9"  style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre9"  style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -498,8 +498,8 @@
                                         <div class="sec1" id="sec1-10">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val10" class="text" style="text-align:left;">London</span>
-                                                    <img id="city-icon10" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                    <span id="city-val10" class="text-1" style="text-align:left;">London</span>
+                                                    <div id="city-icon10" class="ic" ></div>
                                                 </div>
                                                 <span id="city-temp10" class="text" id="text1">25<span>&#176;</span> C</span>
                                             </div>
@@ -512,7 +512,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum10" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum10" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -520,7 +520,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre10"  style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre10"  style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -528,8 +528,8 @@
                                          <div class="sec1" id="sec1-11">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val11" class="text" style="text-align:left;">London</span>
-                                                    <img id="city-icon11" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                    <span id="city-val11" class="text-1" style="text-align:left;">London</span>
+                                                    <div id="city-icon11" class="ic"></div>
                                                 </div>
                                                 <span id="city-temp11" class="text" id="text1">25<span>&#176;</span> C</span>
                                             </div>
@@ -542,7 +542,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum11" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum11" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -550,7 +550,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre11"  style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre11"  style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -558,8 +558,8 @@
                                         <div class="sec1" id="sec1-12">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val12" class="text" style="text-align:left;">London</span>
-                                                    <img id="city-icon12" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                    <span id="city-val12" class="text-1" style="text-align:left;">London</span>
+                                                    <div id="city-icon12" class="ic"></div>
                                                 </div>
                                                 <span id="city-temp12" class="text" id="text1">25<span>&#176;</span> C</span>
                                             </div>
@@ -572,7 +572,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum12" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum12" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -580,7 +580,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre12"  style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre12"  style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -588,8 +588,8 @@
                                         <div class="sec1" id="sec1-13">
                                             <div class="sec1-s1">
                                                 <div class="london-icon">
-                                                    <span id="city-val13" class="text" style="text-align:left;">London</span>
-                                                    <img id="city-icon13" class="ic" src="./img/sunnyIcon.svg" width="15px">
+                                                    <span id="city-val13" class="text-1" style="text-align:left;">London</span>
+                                                    <div id="city-icon13" class="ic"></div>
                                                 </div>
                                                 <span id="city-temp13" class="text" id="text1">25<span>&#176;</span> C</span>
                                             </div>
@@ -602,7 +602,7 @@
                                                 </div>
                                                 <div class="a1_1">
                                                     <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="hum13" style="font-size: 13px;">53%</span>
+                                                    <span class="hum" id="hum13" style="font-size: 13px;">53%</span>
                                                 </div>
                                                 <div class="a1_2">
                                                     <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
@@ -610,7 +610,7 @@
                                                 </div>
                                                 <div class="a1_3">
                                                     <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
-                                                    <span id="pre13"  style="font-size: 13px;">10%</span>
+                                                    <span class="precip-1" id="pre13"  style="font-size: 13px;">10%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -629,164 +629,208 @@
                                 <span>Cities across continents at a Glance</span>
                             </div>
                             <div class="s1-2">
-                                <span class="conti-name"> Continent Name &#8595;</span> <span class="temp-name">Temperature &#8593;</span>
+                                <button type="button" id="conti-name" class="conti-name"> Continent Name &#8595;</button> 
+                                <button type="button" id="temp-name" class="temp-name">Temperature &#8595;</button>
                             </div>
                         </div>
                         <!-- city card list of different continents are displayed with the current temperature, humidity and time -->
-                        <div class="s2">
+                        <div id="s2" class="s2">
                                 <div class="row1-col1">
                                     <div class="up">
-                                        <span class="conti">Asia</span>
-                                        <span class="val">38<span>&#176;</span> C</span>
+                                        <span id="conti1" class="conti"></span>
+                                        <span id="tem1" class="val"></span>
                                     </div>
                                     <div class="down">
-                                        <span class="town">Delhi, 10:10AM</span>
+                                        <div>
+                                            <span id="town1" class="town"></span>
+                                            <span class="time-t" id="tim1"></span>
+                                        </div>
                                         <div class="rain-percent">
                                             <img class="drop-1" src="./img/humidityIcon.svg">
-                                            <span class="percent">53%</span>
+                                            <span id="humidity1" class="percent"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row1-col1">
                                     <div class="up">
-                                        <span class="conti">Africa</span>
-                                        <span class="val">38<span>&#176;</span> C</span>
+                                        <span id="conti2" class="conti"></span>
+                                        <span id="tem2" class="val"></span>
                                     </div>
                                     <div class="down">
-                                        <span class="town">Egypt, 10:10AM</span>
+                                        <div>
+                                            <span id="town2" class="town"></span>
+                                            <span class="time-t" id="tim2"></span>
+                                        </div>
                                         <div class="rain-percent">
                                             <img class="drop-1" src="./img/humidityIcon.svg">
-                                            <span class="percent">53%</span>
+                                            <span id="humidity2" class="percent"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row1-col1">
                                     <div class="up">
-                                        <span class="conti">Europe</span>
-                                        <span class="val">26<span>&#176;</span> C</span>
+                                        <span id="conti3" class="conti"></span>
+                                        <span id="tem3" class="val"></span>
                                     </div>
                                     <div class="down">
-                                        <span class="town">London, 10:10AM</span>
+                                        <div>
+                                            <span id="town3" class="town"></span>
+                                            <span class="time-t" id="tim3"></span>
+                                        </div>
                                         <div class="rain-percent">
                                             <img class="drop-1" src="./img/humidityIcon.svg">
-                                            <span class="percent">53%</span>
+                                            <span id="humidity3" class="percent"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row1-col1">
                                     <div class="up">
-                                        <span class="conti">Asia</span>
-                                        <span class="val">37<span>&#176;</span> C</span>
+                                        <span id="conti4" class="conti"></span>
+                                        <span id="tem4" class="val"></span>
                                     </div>
                                     <div class="down">
-                                        <span class="town">Delhi, 10:10AM</span>
+                                        <div>
+                                            <span id="town4" class="town"></span>
+                                            <span class="time-t" id="tim4"></span>
+                                        </div>
                                         <div class="rain-percent">
                                             <img class="drop-1" src="./img/humidityIcon.svg">
-                                            <span class="percent">53%</span>
+                                            <span id="humidity4" class="percent"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row1-col1">
                                     <div class="up">
-                                        <span class="conti">Africa</span>
-                                        <span class="val">32<span>&#176;</span> C</span>
+                                        <span id="conti5" class="conti"></span>
+                                        <span id="tem5" class="val"></span>
                                     </div>
                                     <div class="down">
-                                        <span class="town">Egypt, 10:10AM</span>
+                                        <div>
+                                            <span id="town5" class="town"></span>
+                                            <span class="time-t" id="tim5"></span>
+                                        </div>
                                         <div class="rain-percent">
                                             <img class="drop-1" src="./img/humidityIcon.svg">
-                                            <span class="percent">53%</span>
+                                            <span id="humidity5" class="percent"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row1-col1">
                                     <div class="up">
-                                        <span class="conti">Europe</span>
-                                        <span class="val">22<span>&#176;</span> C</span>
+                                        <span  id="conti6" class="conti"></span>
+                                        <span id="tem6" class="val"></span>
                                     </div>
                                     <div class="down">
-                                        <span class="town">London, 10:10AM</span>
+                                        <div>
+                                            <span id="town6" class="town"></span>
+                                            <span class="time-t" id="tim6"></span>
+                                        </div>
                                         <div class="rain-percent">
                                             <img class="drop-1" src="./img/humidityIcon.svg">
-                                            <span class="percent">53%</span>
+                                            <span id="humidity6" class="percent"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row1-col1">
                                     <div class="up">
-                                        <span class="conti">Asia</span>
-                                        <span class="val">36<span>&#176;</span> C</span>
+                                        <span id="conti7" class="conti"></span>
+                                        <span id="tem7" class="val"></span>
                                     </div>
                                     <div class="down">
-                                        <span class="town">Delhi, 10:10AM</span>
+                                        <div>
+                                            <span id="town7" class="town"></span>
+                                            <span class="time-t" id="tim7"></span>
+                                        </div>
                                         <div class="rain-percent">
                                             <img class="drop-1" src="./img/humidityIcon.svg">
-                                            <span class="percent">53%</span>
+                                            <span id="humidity7" class="percent"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row1-col1">
                                     <div class="up">
-                                        <span class="conti">Europe</span>
-                                        <span class="val">30<span>&#176;</span> C</span>
+                                        <span id="conti8" class="conti">Europe</span>
+                                        <span id="tem8" class="val">30<span>&#176;</span> C</span>
                                     </div>
                                     <div class="down">
-                                        <span class="town">London, 10:10AM</span>
+                                        <div>
+                                            <span id="town8" class="town">                                              
+                                            </span>
+                                            <span class="time-t" id="tim8">                                              
+                                            </span>
+                                        </div>
                                         <div class="rain-percent">
                                             <img class="drop-1" src="./img/humidityIcon.svg">
-                                            <span class="percent">53%</span>
+                                            <span id="humidity8" class="percent">                                              
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row1-col1">
                                     <div class="up">
-                                        <span class="conti">South America</span>
-                                        <span class="val">35<span>&#176;</span> C</span>
+                                        <span id="conti9" class="conti">
+                                        </span>
+                                        <span id="tem9" class="val">
+                                        </span>
                                     </div>
                                     <div class="down">
-                                        <span class="town">Brazil, 10:10AM</span>
+                                        <div>
+                                            <span id="town9" class="town">                                              
+                                            </span>
+                                            <span class="time-t" id="tim9">                                              
+                                            </span>
+                                        </div>
                                         <div class="rain-percent">
                                             <img class="drop-1" src="./img/humidityIcon.svg">
-                                            <span class="percent">53%</span>
+                                            <span id="humidity9" class="percent"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row1-col1">
                                     <div class="up">
-                                        <span class="conti">Asia</span>
-                                        <span class="val">36<span>&#176;</span> C</span>
+                                        <span id="conti10" class="conti"></span>
+                                        <span id="tem10" class="val"></span>
                                     </div>
                                     <div class="down">
-                                        <span class="town">Delhi, 10:10AM</span>
+                                        <div>
+                                            <span id="town10" class="town"></span>
+                                            <span class="time-t" id="tim10"></span>
+                                        </div>
                                         <div class="rain-percent">
                                             <img class="drop-1" src="./img/humidityIcon.svg">
-                                            <span class="percent">53%</span>
+                                            <span id="humidity10" class="percent"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row1-col1">
                                     <div class="up">
-                                        <span class="conti">Europe</span>
-                                        <span class="val">28<span>&#176;</span> C</span>
+                                        <span  id="conti11" class="conti"></span>
+                                        <span  id="tem11" class="val"></span>
                                     </div>
                                     <div class="down">
-                                        <span class="town">London, 10:10AM</span>
+                                        <div>
+                                            <span id="town11" class="town"></span>
+                                            <span class="time-t" id="tim11"></span>
+                                        </div>
                                         <div class="rain-percent">
                                             <img class="drop-1" src="./img/humidityIcon.svg">
-                                            <span class="percent">53%</span>
+                                            <span  id="humidity11" class="percent"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row1-col1">
                                     <div class="up">
-                                        <span class="conti">South America</span>
-                                        <span class="val">32<span>&#176;</span> C</span>
+                                        <span  id="conti12" class="conti"></span>
+                                        <span  id="tem12" class="val"></span>
                                     </div>
                                     <div class="down">
-                                        <span class="town">Brazil, 10:10AM</span>
+                                        <div>
+                                            <span id="town12" class="town"> </span>
+                                            <span class="time-t" id="tim12"></span>
+                                        </div>
                                         <div class="rain-percent">
                                             <img class="drop-1" src="./img/humidityIcon.svg">
-                                            <span class="percent">53%</span>
+                                            <span  id="humidity12" class="percent"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -794,8 +838,9 @@
                     </div>
             </div>
             <!-- <script type="text/javascript" src="data.json"></script> -->
-            <script src="main.js"></script>
-            <script src="array.js"></script>
+            <script src="./assets/top.js"></script>
+            <script src="./assets/middle.js"></script>
+            <script src="./assets/bottom.js"></script>
         </body>
     </header>
 </html>
