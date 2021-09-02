@@ -6,7 +6,7 @@ var parsedData = JSON.parse(data)
  * @param {*} tempCel
  */
 function celToFahr(tempCel) {
-    return (parseInt(tempCel) * 9) / 5 + 32
+    return ((parseInt(tempCel) * 9) / 5 + 32).toFixed(1)
 }
 /**
  * @desc changes the icon based on the temp value
@@ -26,1322 +26,355 @@ function iconChange(t, _img_src) {
         _img_src.setAttribute('src', './././img/sunnyIcon.svg')
     }
 }
+var city_name = [];
+var i = 0;
+for (var key in parsedData) {
+    for (var key1 in parsedData[key]) {
+        var t = parsedData[key]['cityName']
+        city_name[i] = t
+        i++
+        break
+    }
+}
+var dAndT_array = [];
+var j = 0;
+for (var key in parsedData) {
+    for (var key1 in parsedData[key]) {
+        var t = parsedData[key]['dateAndTime']
+        dAndT_array[j] = t
+        j ++;
+        break
+    }
+}
+var temperature_array = []
+var k = 0;
+for (var key in parsedData) {
+    for (var key1 in parsedData[key]) {
+        var t = parsedData[key]['temperature']
+        temperature_array[k] = t
+        k ++;
+        break
+    }
+}
+var humid_array = [];
+var l = 0;
+for (var key in parsedData) {
+    for (var key1 in parsedData[key]) {
+        var t = parsedData[key]['humidity']
+        humid_array[l] = t
+        l ++;
+        break
+    }
+}
+var precip_array = [];
+var m = 0;
+for (var key in parsedData) {
+    for (var key1 in parsedData[key]) {
+        var t = parsedData[key]['precipitation']
+        precip_array[m] = t
+        m ++;
+        break
+    }
+}
+var next_five_hrs_array = [];
+var n = 0;
+for (var key in parsedData) {
+    for (var key1 in parsedData[key]) {
+        var t = parsedData[key]['nextFiveHrs'];
+        next_five_hrs_array[n] = t
+      n ++;
+      break;
+    }
+}
 ;(function () {
-    var dAndT = parsedData.anadyr.dateAndTime
-    var temp = parsedData.anadyr.temperature
-    var humid = parsedData.anadyr.humidity
-    var precip = parsedData.anadyr.precipitation
-    var d = dAndT.slice(0, 8)
-    var t = dAndT.slice(9, 20)
-    var c1 = parseInt(t.slice(0, 2))
-    var fahr = celToFahr(temp)
-    var hr1 = parsedData.anadyr.nextFiveHrs[0]
-    var hr2 = parsedData.anadyr.nextFiveHrs[1]
-    var hr3 = parsedData.anadyr.nextFiveHrs[2]
-    var hr4 = parsedData.anadyr.nextFiveHrs[3]
-    document.getElementById('temp1').innerHTML = temp
-    document.getElementById('date').innerHTML = d
-    document.getElementById('time1').innerHTML = t
-    document.getElementById('humid1').innerHTML = humid
-    document.getElementById('precip1').innerHTML = precip
+    var index;
+    for(var i = 0; i < city_name.length; i ++){
+        if(city_name[i] == 'Anadyr'){
+            index = i;
+        }
+    }
+    document.getElementById('temp1').innerHTML = temperature_array[index];
+    var fahr = celToFahr(temperature_array[index]);
+    document.getElementById('temp2').innerHTML = fahr;
+    document.getElementById('humid1').innerHTML = humid_array[index];
+    document.getElementById('precip1').innerHTML=precip_array[index];
+    var dAndT = dAndT_array[index];
+    document.getElementById('date').innerHTML = dAndT.substr(0, dAndT.indexOf(','));
+    document.getElementById('time1').innerHTML = dAndT.substr(dAndT.indexOf(',')+1, dAndT.length);
+    var c1 = parseInt(dAndT.substr(dAndT.indexOf(',')+1, dAndT.length))
+    var hr1 = next_five_hrs_array[index][0];
+    var hr2 = next_five_hrs_array[index][1];
+    var hr3 = next_five_hrs_array[index][0];
+    var hr4 = next_five_hrs_array[index][0];
     document.getElementById('now').innerHTML = 'NOW'
-    document.getElementById('cloud0').innerHTML = temp
+    document.getElementById('cloud0').innerHTML = temperature_array[index]
     document.getElementById('cloud1').innerHTML = hr1
     document.getElementById('cloud2').innerHTML = hr2
     document.getElementById('cloud3').innerHTML = hr3
     document.getElementById('cloud4').innerHTML = hr4
-    document.getElementById('temp2').innerHTML = fahr
-    document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'PM'
-    document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'PM'
-    document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'PM'
-    document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'PM'
+    document.getElementById('t1').innerHTML = c1 + 1 
+    document.getElementById('t2').innerHTML = c1 + 2 
+    document.getElementById('t3').innerHTML = c1 + 3 
+    document.getElementById('t4').innerHTML = c1 + 4 
     const img_am_pm = document.getElementById('am-pm')
     img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
 })()
+function find_index(city_val){
+  var index;
+  for(i = 0; i < city_name.length; i ++){
+    if(city_name[i] == city_val){
+      index = i;
+    }
+  }
+  return index;
+}
+function parent_index(_city_)
+{
+  this._city_ = _city_;
+}
+function child_index(_city_)
+{
+  parent_index.call(this, _city_);
+}
+var ind;
+parent_index.prototype.print_city = function(){
+  ind = find_index(this._city_);
+  console.log(this._city_ + " " + ind);
+  document.getElementById('temp1').innerHTML = temperature_array[ind];
+  var fahr = celToFahr(temperature_array[ind]);
+  document.getElementById('temp2').innerHTML = fahr;
+  document.getElementById('humid1').innerHTML = humid_array[ind];
+  document.getElementById('precip1').innerHTML=precip_array[ind];
+  var dAndT = dAndT_array[ind];
+  document.getElementById('date').innerHTML = dAndT.substr(0, dAndT.indexOf(','));
+  document.getElementById('time1').innerHTML = dAndT.substr(dAndT.indexOf(',')+1, dAndT.length);
+  var hr1 = next_five_hrs_array[ind][0];
+  var hr2 = next_five_hrs_array[ind][1];
+  var hr3 = next_five_hrs_array[ind][0];
+  var hr4 = next_five_hrs_array[ind][0];
+  const _img2 = document.getElementById('img2')
+  iconChange(temperature_array[ind], _img2)
+  const _img3 = document.getElementById('img3')
+  iconChange(hr1, _img3)
+  const _img4 = document.getElementById('img4')
+  iconChange(hr2, _img4)
+  const _img5 = document.getElementById('img5')
+  iconChange(hr3, _img5)
+  const _img6 = document.getElementById('img6')
+  iconChange(hr4, _img6)
+  document.getElementById('now').innerHTML = 'NOW'
+  document.getElementById('cloud0').innerHTML = temperature_array[ind]
+  document.getElementById('cloud1').innerHTML = hr1
+  document.getElementById('cloud2').innerHTML = hr2
+  document.getElementById('cloud3').innerHTML = hr3
+  document.getElementById('cloud4').innerHTML = hr4
+  var c1 = parseInt(dAndT.substr(dAndT.indexOf(',')+1, dAndT.length))
+  var c2;
+  var c3;
+  var c4;
+  var c5;
+  var am_or_pm = dAndT.substr(dAndT.length-2, dAndT.length);
+  if(c1 < 9){
+    c2 = c1 + 1;
+    c3 = c1 + 2;
+    c4 = c1 + 3;
+    c5 = c1 + 4;
+  }
+  else if(c1 == 9){
+    c2 = 10;
+    c3 = 11;
+    c4 = 12;
+    c5 = 1;
+  }
+  else if(c1 == 10){
+    c2 = 11;
+    c3 = 12;
+    c4 = 1;
+    c5 = 2;
+  }
+  else if(c1 == 11){
+    c2 = 12;
+    c3 = 1;
+    c4 = 2;
+    c5 = 3;
+  }
+  else if(c1 == 12){
+    c2 = 1;
+    c3 = 2;
+    c4 = 3;
+    c5 = 4;
+  }
+  const img1 = document.getElementById('icon-change')
+  img1.setAttribute('src', './././img/'+this._city_.toLowerCase()+'.svg')
+  if(c2 == 1 && am_or_pm == 'AM'){
+    document.getElementById('t1').innerHTML = c2 + " " + 'PM'
+    document.getElementById('t2').innerHTML = c3 + " " + 'PM'
+    document.getElementById('t3').innerHTML = c4 + " " + 'PM'
+    document.getElementById('t4').innerHTML = c5 +  " " +'PM'
+  }
+  else if(c2 == 1 && am_or_pm == 'PM'){
+    document.getElementById('t1').innerHTML = c2 + " " + 'AM'
+    document.getElementById('t2').innerHTML = c3 + " " + 'AM'
+    document.getElementById('t3').innerHTML = c4 + " " + 'AM'
+    document.getElementById('t4').innerHTML = c5 +  " " +'AM'
+  }
+  else if(c3 == 1 && am_or_pm == 'PM'){
+    document.getElementById('t1').innerHTML = c2 +  " " +'PM'
+    document.getElementById('t2').innerHTML = c3 +  " " +'AM'
+    document.getElementById('t3').innerHTML = c4 +  " " +'AM'
+    document.getElementById('t4').innerHTML = c5 +  " " +'AM'
+  }
+  else if(c3 == 1 && am_or_pm == 'AM'){
+    document.getElementById('t1').innerHTML = c2 +  " " +'AM'
+    document.getElementById('t2').innerHTML = c3 +  " " +'PM'
+    document.getElementById('t3').innerHTML = c4 +  " " +'PM'
+    document.getElementById('t4').innerHTML = c5 + " " + 'PM'
+  }
+  else if(c4 == 1 && am_or_pm == 'AM'){
+    document.getElementById('t1').innerHTML = c2 +  " " +'AM'
+    document.getElementById('t2').innerHTML = c3 +  " " +'AM'
+    document.getElementById('t3').innerHTML = c4 +  " " + 'PM'
+    document.getElementById('t4').innerHTML = c5 +  " " + 'PM' 
+  }
+  else if(c4 == 1 && am_or_pm == 'PM'){
+    document.getElementById('t1').innerHTML = c2 +  " " + 'PM'
+    document.getElementById('t2').innerHTML = c3 +  " " +'PM'
+    document.getElementById('t3').innerHTML = c4 +  " " +'AM'
+    document.getElementById('t4').innerHTML = c5 +  " " +'AM' 
+  }
+  else if(c5 == 1 && am_or_pm == 'AM'){
+    document.getElementById('t1').innerHTML = c2 +  " " +'AM'
+    document.getElementById('t2').innerHTML = c3 +  " " +'AM'
+    document.getElementById('t3').innerHTML = c4 +  " " +'AM'
+    document.getElementById('t4').innerHTML = c5 +  " " +'PM' 
+  }
+  else if(c5 == 1 && am_or_pm == 'PM'){
+    document.getElementById('t1').innerHTML = c2 + " " + 'PM'
+    document.getElementById('t2').innerHTML = c3 + " " +'PM'
+    document.getElementById('t3').innerHTML = c4 + " " +'PM'
+    document.getElementById('t4').innerHTML = c5 + " " +'AM' 
+  }
+  else{
+    document.getElementById('t1').innerHTML = c2 + " " + am_or_pm
+    document.getElementById('t2').innerHTML = c3 + " " + am_or_pm
+    document.getElementById('t3').innerHTML = c4 + " " + am_or_pm
+    document.getElementById('t4').innerHTML = c5 + " " + am_or_pm
+  }
+}
+var inherit_city;
+child_index.prototype = Object.create(parent_index.prototype);
 /**
  * @desc when the city is selected from the drop down
  */
 document.getElementById('cities').onchange = function () {
-    if (this.value == 'Anadyr') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/anadyr.svg')
-        var dAndT = parsedData.anadyr.dateAndTime
-        var temp = parsedData.anadyr.temperature
-        var humid = parsedData.anadyr.humidity
-        var precip = parsedData.anadyr.precipitation
-        var fahr = celToFahr(temp)
-        var hr1 = parsedData.anadyr.nextFiveHrs[0]
-        var hr2 = parsedData.anadyr.nextFiveHrs[1]
-        var hr3 = parsedData.anadyr.nextFiveHrs[2]
-        var hr4 = parsedData.anadyr.nextFiveHrs[3]
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 20)
-        var c1 = parseInt(t.slice(0, 2))
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'PM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'PM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'PM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'PM'
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Auckland') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/auckland.svg')
-        var dAndT = parsedData.auckland.dateAndTime
-        var temp = parsedData.auckland.temperature
-        var humid = parsedData.auckland.humidity
-        var precip = parsedData.auckland.precipitation
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 20)
-        var c1 = parseInt(t.slice(0, 2))
-        var fahr = celToFahr(temp)
-        var hr1 = parsedData.auckland.nextFiveHrs[0]
-        var hr2 = parsedData.auckland.nextFiveHrs[1]
-        var hr3 = parsedData.auckland.nextFiveHrs[2]
-        var hr4 = parsedData.auckland.nextFiveHrs[3]
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'PM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'PM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'PM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'PM'
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Bangkok') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/bangkok.svg')
-        var dAndT = parsedData.bangkok.dateAndTime
-        var humid = parsedData.bangkok.humidity
-        var temp = parsedData.bangkok.temperature
-        var precip = parsedData.bangkok.precipitation
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 21)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-        var hr1 = parsedData.bangkok.nextFiveHrs[0]
-        var hr2 = parsedData.bangkok.nextFiveHrs[1]
-        var hr3 = parsedData.bangkok.nextFiveHrs[2]
-        var hr4 = parsedData.bangkok.nextFiveHrs[3]
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('date').innerHTML = d
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-        if (c1 == 12) {
-            document.getElementById('t1').innerHTML = c1 - 11 + ' ' + 'AM'
-            document.getElementById('t2').innerHTML = c1 - 10 + ' ' + 'AM'
-            document.getElementById('t3').innerHTML = c1 - 9 + ' ' + 'AM'
-            document.getElementById('t4').innerHTML = c1 - 8 + ' ' + 'AM'
-        }
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Broken Hill') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/brokenhill.svg')
-        var dAndT = parsedData.brokenhill.dateAndTime
-        var temp = parsedData.brokenhill.temperature
-        var humid = parsedData.brokenhill.humidity
-        var precip = parsedData.brokenhill.precipitation
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 20)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-        var hr1 = parsedData.brokenhill.nextFiveHrs[0]
-        var hr2 = parsedData.brokenhill.nextFiveHrs[1]
-        var hr3 = parsedData.brokenhill.nextFiveHrs[2]
-        var hr4 = parsedData.brokenhill.nextFiveHrs[3]
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'PM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'PM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'PM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'PM'
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Dublin') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/dublin.svg')
-        var dAndT = parsedData.dublin.dateAndTime
-        var humid = parsedData.dublin.humidity
-        var precip = parsedData.dublin.precipitation
-        var temp = parsedData.dublin.temperature
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 20)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-        var hr1 = parsedData.dublin.nextFiveHrs[0]
-        var hr2 = parsedData.dublin.nextFiveHrs[1]
-        var hr3 = parsedData.dublin.nextFiveHrs[2]
-        var hr4 = parsedData.dublin.nextFiveHrs[3]
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'AM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'AM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'AM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'AM'
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Jamaica') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/jamaica.svg')
-        var dAndT = parsedData.jamaica.dateAndTime
-        var humid = parsedData.jamaica.humidity
-        var precip = parsedData.jamaica.precipitation
-        var temp = parsedData.jamaica.temperature
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 21)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-        var hr1 = parsedData.jamaica.nextFiveHrs[0]
-        var hr2 = parsedData.jamaica.nextFiveHrs[1]
-        var hr3 = parsedData.jamaica.nextFiveHrs[2]
-        var hr4 = parsedData.jamaica.nextFiveHrs[3]
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('date').innerHTML = d
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-        document.getElementById('t1').innerHTML = c1 - 11 + ' ' + 'PM'
-        document.getElementById('t2').innerHTML = c1 - 10 + ' ' + 'PM'
-        document.getElementById('t3').innerHTML = c1 - 9 + ' ' + 'PM'
-        document.getElementById('t4').innerHTML = c1 - 8 + ' ' + 'PM'
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Juba') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/juba.svg')
-        var dAndT = parsedData.juba.dateAndTime
-        var temp = parsedData.juba.temperature
-        var humid = parsedData.juba.humidity
-        var precip = parsedData.juba.precipitation
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 20)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-        var hr1 = parsedData.juba.nextFiveHrs[0]
-        var hr2 = parsedData.juba.nextFiveHrs[1]
-        var hr3 = parsedData.juba.nextFiveHrs[2]
-        var hr4 = parsedData.juba.nextFiveHrs[3]
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('date').innerHTML = d
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'AM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'AM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'AM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'AM'
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Karachi') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/karachi.svg')
-        var dAndT = parsedData.karachi.dateAndTime
-        var humid = parsedData.karachi.humidity
-        var temp = parsedData.karachi.temperature
-        var precip = parsedData.karachi.precipitation
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 21)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-        var hr1 = parsedData.karachi.nextFiveHrs[0]
-        var hr2 = parsedData.karachi.nextFiveHrs[1]
-        var hr3 = parsedData.karachi.nextFiveHrs[2]
-        var hr4 = parsedData.karachi.nextFiveHrs[3]
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'AM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'PM'
-        document.getElementById('t3').innerHTML = c1 - 9 + ' ' + 'PM'
-        document.getElementById('t4').innerHTML = c1 - 8 + ' ' + 'PM'
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Kolkata') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/kolkata.svg')
-        var dAndT = parsedData.kolkata.dateAndTime
-        var temp = parsedData.kolkata.temperature
-        var humid = parsedData.kolkata.humidity
-        var precip = parsedData.kolkata.precipitation
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 21)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-        var hr1 = parsedData.kolkata.nextFiveHrs[0]
-        var hr2 = parsedData.kolkata.nextFiveHrs[1]
-        var hr3 = parsedData.kolkata.nextFiveHrs[2]
-        var hr4 = parsedData.kolkata.nextFiveHrs[3]
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('date').innerHTML = d
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'AM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'PM'
-        document.getElementById('t3').innerHTML = c1 - 9 + ' ' + 'PM'
-        document.getElementById('t4').innerHTML = c1 - 8 + ' ' + 'PM'
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'London') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/london.svg')
-        var dAndT = parsedData.london.dateAndTime
-        var humid = parsedData.london.humidity
-        var temp = parsedData.london.temperature
-        var precip = parsedData.london.precipitation
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 20)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-        var hr1 = parsedData.london.nextFiveHrs[0]
-        var hr2 = parsedData.london.nextFiveHrs[1]
-        var hr3 = parsedData.london.nextFiveHrs[2]
-        var hr4 = parsedData.london.nextFiveHrs[3]
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'AM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'AM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'AM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'AM'
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Los Angeles') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/losangeles.svg')
-        var dAndT = parsedData.losangeles.dateAndTime
-        var temp = parsedData.losangeles.temperature
-        var humid = parsedData.losangeles.humidity
-        var precip = parsedData.losangeles.precipitation
-        var d = dAndT.slice(0, 9)
-        var t = dAndT.slice(11, 22)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-        var hr1 = parsedData.losangeles.nextFiveHrs[0]
-        var hr2 = parsedData.losangeles.nextFiveHrs[1]
-        var hr3 = parsedData.losangeles.nextFiveHrs[2]
-        var hr4 = parsedData.losangeles.nextFiveHrs[3]
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'AM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'AM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'AM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'AM'
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Maseru') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/maseru.svg')
-
-        var dAndT = parsedData.maseru.dateAndTime
-        var temp = parsedData.maseru.temperature
-        var precip = parsedData.maseru.precipitation
-        var humid = parsedData.maseru.humidity
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 20)
-        var c1 = parseInt(t.slice(0, 2))
-        var fahr = celToFahr(temp)
-
-        var hr1 = parsedData.maseru.nextFiveHrs[0]
-        var hr2 = parsedData.maseru.nextFiveHrs[1]
-        var hr3 = parsedData.maseru.nextFiveHrs[2]
-        var hr4 = parsedData.maseru.nextFiveHrs[3]
-
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('date').innerHTML = d
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('time1').innerHTML = t
-
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'AM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'AM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'AM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'AM'
-
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Moscow') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/moscow.svg')
-
-        var dAndT = parsedData.moscow.dateAndTime
-        var humid = parsedData.moscow.humidity
-        var precip = parsedData.moscow.precipitation
-        var temp = parsedData.moscow.temperature
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 20)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-
-        var hr1 = parsedData.moscow.nextFiveHrs[0]
-        var hr2 = parsedData.moscow.nextFiveHrs[1]
-        var hr3 = parsedData.moscow.nextFiveHrs[2]
-        var hr4 = parsedData.moscow.nextFiveHrs[3]
-
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('temp2').innerHTML = fahr
-
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'AM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'AM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'AM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'PM'
-
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'New York') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/newyork.svg')
-
-        var dAndT = parsedData.newyork.dateAndTime
-        var temp = parsedData.newyork.temperature
-        var precip = parsedData.newyork.precipitation
-        var humid = parsedData.newyork.humidity
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 20)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-
-        var hr1 = parsedData.newyork.nextFiveHrs[0]
-        var hr2 = parsedData.newyork.nextFiveHrs[1]
-        var hr3 = parsedData.newyork.nextFiveHrs[2]
-        var hr4 = parsedData.newyork.nextFiveHrs[3]
-
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('temp2').innerHTML = fahr
-
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'AM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'AM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'AM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'AM'
-
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Nome') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/nome.svg')
-
-        var dAndT = parsedData.nome.dateAndTime
-        var humid = parsedData.nome.humidity
-        var precip = parsedData.nome.precipitation
-        var temp = parsedData.nome.temperature
-        var d = dAndT.slice(0, 9)
-        var t = dAndT.slice(10, 22)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-
-        var hr1 = parsedData.nome.nextFiveHrs[0]
-        var hr2 = parsedData.nome.nextFiveHrs[1]
-        var hr3 = parsedData.nome.nextFiveHrs[2]
-        var hr4 = parsedData.nome.nextFiveHrs[3]
-
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('date').innerHTML = d
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('time1').innerHTML = t
-
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'AM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'AM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'AM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'AM'
-
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Perth') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/perth.svg')
-
-        var dAndT = parsedData.perth.dateAndTime
-        var humid = parsedData.perth.humidity
-        var precip = parsedData.perth.precipitation
-        var temp = parsedData.perth.temperature
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 20)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-
-        var hr1 = parsedData.perth.nextFiveHrs[0]
-        var hr2 = parsedData.perth.nextFiveHrs[1]
-        var hr3 = parsedData.perth.nextFiveHrs[2]
-        var hr4 = parsedData.perth.nextFiveHrs[3]
-
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('precip1').innerHTML = precip
-
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'PM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'PM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'PM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'PM'
-
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Seoul') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/seoul.svg')
-
-        var dAndT = parsedData.seoul.dateAndTime
-        var humid = parsedData.seoul.humidity
-        var temp = parsedData.seoul.temperature
-        var precip = parsedData.seoul.precipitation
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 20)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-
-        var hr1 = parsedData.seoul.nextFiveHrs[0]
-        var hr2 = parsedData.seoul.nextFiveHrs[1]
-        var hr3 = parsedData.seoul.nextFiveHrs[2]
-        var hr4 = parsedData.seoul.nextFiveHrs[3]
-
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('humid1').innerHTML = humid
-
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'PM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'PM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'PM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'PM'
-
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Troll') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/troll.svg')
-
-        var dAndT = parsedData.troll.dateAndTime
-        var precip = parsedData.troll.precipitation
-        var humid = parsedData.troll.humidity
-        var temp = parsedData.troll.temperature
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 20)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-
-        var hr1 = parsedData.troll.nextFiveHrs[0]
-        var hr2 = parsedData.troll.nextFiveHrs[1]
-        var hr3 = parsedData.troll.nextFiveHrs[2]
-        var hr4 = parsedData.troll.nextFiveHrs[3]
-
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('date').innerHTML = d
-        document.getElementById('temp2').innerHTML = fahr.toFixed(2)
-        document.getElementById('time1').innerHTML = t
-
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'PM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'PM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'PM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'PM'
-
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Vienna') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/Vienna.svg')
-
-        var dAndT = parsedData.vienna.dateAndTime
-        var humid = parsedData.vienna.humidity
-        var precip = parsedData.vienna.precipitation
-        var temp = parsedData.vienna.temperature
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 20)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-
-        var hr1 = parsedData.vienna.nextFiveHrs[0]
-        var hr2 = parsedData.vienna.nextFiveHrs[1]
-        var hr3 = parsedData.vienna.nextFiveHrs[2]
-        var hr4 = parsedData.vienna.nextFiveHrs[3]
-
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'AM'
-        document.getElementById('t2').innerHTML = c1 + 2 + ' ' + 'AM'
-        document.getElementById('t3').innerHTML = c1 + 3 + ' ' + 'AM'
-        document.getElementById('t4').innerHTML = c1 + 4 + ' ' + 'AM'
-
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Vostok') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/vostok.svg')
-
-        var dAndT = parsedData.vostok.dateAndTime
-        var humid = parsedData.vostok.humidity
-        var temp = parsedData.vostok.temperature
-        var precip = parsedData.vostok.precipitation
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 21)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-
-        var hr1 = parsedData.vostok.nextFiveHrs[0]
-        var hr2 = parsedData.vostok.nextFiveHrs[1]
-        var hr3 = parsedData.vostok.nextFiveHrs[2]
-        var hr4 = parsedData.vostok.nextFiveHrs[3]
-
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('date').innerHTML = d
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('time1').innerHTML = t
-
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'PM'
-        document.getElementById('t2').innerHTML = c1 - 10 + ' ' + 'PM'
-        document.getElementById('t3').innerHTML = c1 - 9 + ' ' + 'PM'
-        document.getElementById('t4').innerHTML = c1 - 8 + ' ' + 'PM'
-
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Winnipeg') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/winnipeg.svg')
-
-        var dAndT = parsedData.winnipeg.dateAndTime
-        var humid = parsedData.winnipeg.humidity
-        var precip = parsedData.winnipeg.precipitation
-        var temp = parsedData.winnipeg.temperature
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 21)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-
-        var hr1 = parsedData.winnipeg.nextFiveHrs[0]
-        var hr2 = parsedData.winnipeg.nextFiveHrs[1]
-        var hr3 = parsedData.winnipeg.nextFiveHrs[2]
-        var hr4 = parsedData.winnipeg.nextFiveHrs[3]
-
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('precip1').innerHTML = precip
-
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-
-        document.getElementById('t1').innerHTML = c1 - 11 + ' ' + 'AM'
-        document.getElementById('t2').innerHTML = c1 - 10 + ' ' + 'AM'
-        document.getElementById('t3').innerHTML = c1 - 9 + ' ' + 'AM'
-        document.getElementById('t4').innerHTML = c1 - 8 + ' ' + 'AM'
-
-        const img_am_pm = document.getElementById('am-pm')
-        img_am_pm.setAttribute('src', './././img/sunnyIcon.svg')
-    } else if (this.value == 'Yangon') {
-        const img1 = document.getElementById('icon-change')
-        img1.setAttribute('src', './././img/yangon.svg')
-
-        var dAndT = parsedData.yangon.dateAndTime
-        var humid = parsedData.yangon.humidity
-        var precip = parsedData.yangon.precipitation
-        var temp = parsedData.yangon.temperature
-        var d = dAndT.slice(0, 8)
-        var t = dAndT.slice(9, 21)
-        var c1 = parseInt(t.slice(0, 3))
-        var fahr = celToFahr(temp)
-
-        var hr1 = parsedData.yangon.nextFiveHrs[0]
-        var hr2 = parsedData.yangon.nextFiveHrs[1]
-        var hr3 = parsedData.yangon.nextFiveHrs[2]
-        var hr4 = parsedData.yangon.nextFiveHrs[3]
-
-        const _img2 = document.getElementById('img2')
-        iconChange(temp, _img2)
-        const _img3 = document.getElementById('img3')
-        iconChange(hr1, _img3)
-        const _img4 = document.getElementById('img4')
-        iconChange(hr2, _img4)
-        const _img5 = document.getElementById('img5')
-        iconChange(hr3, _img5)
-        const _img6 = document.getElementById('img6')
-        iconChange(hr4, _img6)
-
-        document.getElementById('precip1').innerHTML = precip
-        document.getElementById('humid1').innerHTML = humid
-        document.getElementById('temp1').innerHTML = temp
-        document.getElementById('temp2').innerHTML = fahr
-        document.getElementById('date').innerHTML = d
-        document.getElementById('time1').innerHTML = t
-
-        document.getElementById('now').innerHTML = 'NOW'
-        document.getElementById('cloud0').innerHTML = temp
-        document.getElementById('cloud1').innerHTML = hr1
-        document.getElementById('cloud2').innerHTML = hr2
-        document.getElementById('cloud3').innerHTML = hr3
-        document.getElementById('cloud4').innerHTML = hr4
-
-        document.getElementById('t1').innerHTML = c1 + 1 + ' ' + 'PM'
-        document.getElementById('t2').innerHTML = c1 - 10 + ' ' + 'PM'
-        document.getElementById('t3').innerHTML = c1 - 9 + ' ' + 'PM'
-        document.getElementById('t4').innerHTML = c1 - 8 + ' ' + 'PM'
-    } else {
+  if (this.value == 'Anadyr') {
+     inherit_city = new parent_index(this.value);
+     inherit_city.print_city();
+  } 
+  else if (this.value == 'Auckland') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'BangKok') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();   
+  } 
+  else if (this.value == 'BrokenHill') {
+    inherit_city = new parent_index(this.value);
+     inherit_city.print_city();     
+  } 
+  else if (this.value == 'Dublin') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();  
+  } 
+  else if (this.value == 'Jamaica') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'Juba') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'Karachi') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'Kolkata') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();     
+  } 
+  else if (this.value == 'London') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'LosAngeles') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();    
+  } 
+  else if (this.value == 'Maseru') {     
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();    
+  } 
+  else if (this.value == 'Moscow') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'NewYork') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'Nome') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'Perth') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'Seoul') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'Troll') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'Vienna') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'Vostok') {
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'Winnipeg') {     
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else if (this.value == 'Yangon') {         
+    inherit_city = new parent_index(this.value);
+    inherit_city.print_city();
+  } 
+  else {
         const img1 = document.getElementById('icon-change')
         img1.setAttribute('src', './././img/warning.svg')
-
         document.getElementById('precip1').innerHTML = '-'
         document.getElementById('temp1').innerHTML = '-'
         document.getElementById('date').innerHTML = '-'
         document.getElementById('time1').innerHTML = '-'
         document.getElementById('humid1').innerHTML = '-'
         document.getElementById('temp2').innerHTML = '-'
-
         document.getElementById('cloud0').innerHTML = '-'
         document.getElementById('cloud1').innerHTML = '-'
         document.getElementById('cloud2').innerHTML = '-'
         document.getElementById('cloud3').innerHTML = '-'
         document.getElementById('cloud4').innerHTML = '-'
-
         const img_am_pm = document.getElementById('am-pm')
         img_am_pm.setAttribute('src', null)
-
         document.getElementById('now').innerHTML = '-'
         document.getElementById('t1').innerHTML = '-'
         document.getElementById('t2').innerHTML = '-'
         document.getElementById('t3').innerHTML = '-'
         document.getElementById('t4').innerHTML = '-'
-    }
+  }
 }
-
-//current date of Anadyr
-// var d1 = new Date();
-// var n1 = d1.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Asia/Anadyr'});
-// var p1 = d1.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Asia/Anadyr'});
-// document.getElementById("date").innerHTML = n1;
-// document.getElementById("time1").innerHTML = p1;
-//  //startTime(p1);
-// //change the cities from the drop down the icon, time, date, temperature in celcius and fahrenheit, humidity and precipitation will be changed
-// document.getElementById("cities").onchange = function()
-// {
-//     if(this.value == "Anadyr")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/anadyr.svg');
-//         var d = new Date();
-//         var n = d.toLocaleTimeString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Asia/Anadyr'});
-//         var p = d.toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Asia/Anadyr'});
-
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-
-//     }
-//     else if(this.value == "Auckland")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/auckland.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Pacific/Auckland'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Pacific/Auckland'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value === "Bangkok")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/bangkok.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Asia/Bangkok'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Asia/Bangkok'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Broken Hill")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/brokenhill.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Australia/Broken_Hill'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Australia/Broken_Hill'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Dublin")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/dublin.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Etc/GMT+1'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Etc/GMT+1'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Jamaica")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/jamaica.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Etc/GMT-5'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Etc/GMT-5'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Juba")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/juba.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Africa/Juba'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Africa/Juba'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Karachi")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/karachi.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Asia/Karachi'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Asia/Karachi'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Kolkata")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/kolkata.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Asia/Kolkata'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Asia/Kolkata'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "London")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/london.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Europe/London'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Europe/London'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Los Angeles")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/losangeles.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'America/Los_Angeles'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'America/Los_Angeles'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Maseru")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/maseru.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Africa/Maseru'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Africa/Maseru'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Moscow")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/moscow.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Europe/Moscow'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Europe/Moscow'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "New York")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/newyork.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'America/New_York'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'America/New_York'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Nome")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/nome.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'America/Nome'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'America/Nome'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Perth")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/perth.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Australia/Perth'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Australia/Perth'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//      }
-//     else if(this.value == "Seoul")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/seoul.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Asia/Seoul'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Asia/Seoul'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Troll")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/troll.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Antarctica/Troll'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Antarctica/Troll'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Vienna")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/Vienna.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Europe/Vienna'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Europe/Vienna'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Vostok")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/vostok.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Antarctica/Vostok'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Antarctica/Vostok'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Winnipeg")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/winnipeg.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'America/Winnipeg'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'America/Winnipeg'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-//     else if(this.value == "Yangon")
-//     {
-//         const img1 = document.getElementById('icon-change');
-//         img1.setAttribute('src','./././img/yangon.svg');
-//         var d = new Date();
-//         var n = d.toLocaleString('en-GB', {day: '2-digit', month:'short',  year:'numeric' , timeZone: 'Asia/Yangon'});
-//         var p = d.toLocaleString('en-GB', {hour: '2-digit', minute: '2-digit', second: '2-digit',  hourCycle: 'h11',timeZone: 'Asia/Yangon'});
-//         document.getElementById("date").innerHTML = n;
-//         document.getElementById("time1").innerHTML = p;
-//     }
-// };

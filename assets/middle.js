@@ -41,19 +41,11 @@ button2.onclick = function () {
 for (var key in mydata1) {
     for (var key1 in mydata1[key]) {
         // console.log(mydata1[key]["temperature"]);
-        var a = mydata1[key]['temperature'].substr(
-            0,
-            mydata1[key]['temperature'].indexOf('°')
-        )
+        var a = mydata1[key]['temperature'].substr(0,mydata1[key]['temperature'].indexOf('°'))
         var t1 = parseInt(a)
-        var b = mydata1[key]['humidity'].substr(
-            0,
-            mydata1[key]['humidity'].indexOf('%')
-        )
+        var b = mydata1[key]['humidity'].substr(0,mydata1[key]['humidity'].indexOf('%'))
         var t2 = parseInt(b)
-        var c = mydata1[key]['precipitation'].substr(
-            0,
-            mydata1[key]['precipitation'].indexOf('%')
+        var c = mydata1[key]['precipitation'].substr(0,mydata1[key]['precipitation'].indexOf('%')
         )
         var t3 = parseInt(c)
         if (t1 < 20 && t2 >= 50) {
@@ -125,35 +117,6 @@ for (var key in mydata1) {
         break
     }
 }
-var not_windy = []
-var not_snowy = []
-var not_sunny = []
-/**
- * @desc difference of 2 string arrays
- * @param {*} first 
- * @param {*} second
- */
-function difference(first, second) {
-    var third = []
-    var k = 0
-    for (i = 0; i < first.length; i++) {
-        var p = 0
-        for (j = 0; j < second.length; j++) {
-            if (first[i] == second[j]) {
-                p = 1
-                break
-            }
-        }
-        if (p == 0) {
-            third[k] = first[i]
-            k++
-        }
-    }
-    return third
-}
-not_windy = difference(city_array_card, windy)
-not_snowy = difference(city_array_card, snowy)
-not_sunny = difference(city_array_card, sunny)
 var sunny_temp = []
 var k1 = 0
 for (var key in mydata1) {
@@ -382,6 +345,9 @@ function myFunction2() {
     var b2 = document.getElementById('blue1')
     b2.style.display = 'none'
 }
+/**
+ * @desc when the icon snowy is cliked this function is executed
+ */
 function myFunction3() {
     const city_element_card = document.querySelectorAll('.text-1')
     const temp_element_card = document.querySelectorAll('.text')
@@ -441,9 +407,11 @@ function spin() {
     var wind = document.getElementById('blue2').style['display']
     if (snow == 'block' && spin_val > snowy.length) {
         spin_val = snowy.length
-    } else if (hot == 'block' && spin_val > sunny.length) {
+    } 
+    else if (hot == 'block' && spin_val > sunny.length) {
         spin_val = sunny.length
-    } else if (wind == 'block' && spin_val > windy.length) {
+    } 
+    else if (wind == 'block' && spin_val > windy.length) {
         spin_val = windy.length
     }
 
