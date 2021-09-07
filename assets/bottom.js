@@ -112,7 +112,8 @@ document.getElementById('conti-name').addEventListener('click', function () {
             temp_element[i].innerHTML = temp_temperature_array[i]
             humidity_element[i].innerHTML = temp_humidity_array[i]
         }
-    } else {
+    } 
+    else {
         for (var i = 0; i < conti_element.length; i++) {
             conti_element[i].innerHTML = continent_array[i]
             city_element[i].innerHTML = city_array[i]
