@@ -5,7 +5,7 @@
     <title>Weather Report - Today</title>
     <meta name="weather" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./css/style1.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -20,7 +20,7 @@
             <div class="left_top">
               <!-- city icon is displayed -->
               <div class="l1">
-                <img id = "icon-change" src="./././img/anadyr.svg" width="80" height="80">
+                <img id = "icon-change" src="./././assets/img/anadyr.svg" width="80" height="80">
               </div>
               <!-- drop down menu for the city list is created -->
               <div class="l2">  
@@ -52,7 +52,7 @@
               </div>
             </div>
             <div class="date_time">
-              <img id="am-pm" src="./img/sunnyIcon.svg" width="11px" style="margin-left: 90px;">
+              <img id="am-pm" src="./assets/img/sunnyIcon.svg" width="11px" style="margin-left: 90px;">
               <span id="time1" class="time1"></span>
               <span id="date" class="date"></span>
             </div>
@@ -102,7 +102,7 @@
             <div class="v1">
             </div>
             <div class="image">
-              <img src="./img/cloudyIcon.svg" id="img2" width="20px">
+              <img src="./assets/img/cloudyIcon.svg" id="img2" width="20px">
             </div>
             <div class="num">
               <span id="cloud0">
@@ -120,7 +120,7 @@
             <div class="v1">
             </div>
             <div class="image">
-              <img src="./img/rainyIcon.svg" id="img3" width="20px">
+              <img src="./assets/img/rainyIcon.svg" id="img3" width="20px">
             </div>
             <div class="num">
               <span id="cloud1">
@@ -137,7 +137,7 @@
           <div class="v1">
           </div>
           <div class="image">
-          <img src="./img/windyIcon.svg" id="img4" width="20px">
+          <img src="./assets/img/windyIcon.svg" id="img4" width="20px">
           </div>
           <div class="num">
           <span id="cloud2">
@@ -154,7 +154,7 @@
             <div class="v1">
             </div>
             <div class="image">
-              <img src="./img/rainyIcon.svg" id="img5" width="20px">
+              <img src="./assets/img/rainyIcon.svg" id="img5" width="20px">
             </div>
             <div class="num">
               <span id="cloud3">
@@ -171,7 +171,7 @@
             <div class="v1">
             </div>
             <div class="image">
-              <img src="./img/windyIcon.svg" id="img6" width="20px">
+              <img src="./assets/img/windyIcon.svg" id="img6" width="20px">
             </div>
             <div class="num">
               <span id="cloud4"></span>
@@ -194,16 +194,16 @@
             <div class="icon-small">
               <div class="icon_align">
                 <div class="line-icon">
-                  <img onload="myFunction1()" id = "sticky-1" class="sticky" src="./img/sunnyIcon.svg"> 
+                  <img onclick="myFunction1()" id = "sticky-1" class="sticky" src="./assets/img/sunnyIcon.svg"> 
                   <div id= "blue" class="h-line-blue">
                   </div>
                 </div>
                 <div class="line-icon">
-                  <img onclick="myFunction3()" id="sticky-2" class="sticky" src="./img/snowflakeIcon.svg">
+                  <img onclick="myFunction3()" id="sticky-2" class="sticky" src="./assets/img/snowflakeIcon.svg">
                   <div id= "blue1" class="h-line-blue"></div>
                 </div>
                 <div class="line-icon">
-                  <img onclick="myFunction2()" id="sticky-3" class="sticky" src="./img/windyIcon.svg">
+                  <img onclick="myFunction2()" id="sticky-3" class="sticky" src="./assets/img/windyIcon.svg">
                   <div id= "blue2" class="h-line-blue"></div>
                 </div>
               </div>
@@ -221,7 +221,7 @@
         <!-- Container for city cards -->
         <div class="mid_bottom">
           <button id="arrow-left" type="button" class="arrow-left">
-            <img src="./img/backwardArrow.svg">
+            <img src="./assets/img/backwardArrow.svg">
           </button>
           <div id="city-cards-container" class="city-cards-container">
             <div class="city-cards-wrapper">
@@ -249,19 +249,19 @@
                     </span>
                   </div>
                   <div class="a1_1">
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="hum" id="hum" style="font-size: 13px;">
                       53%
                     </span>
                   </div>
                   <div class="a1_2">
-                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="precip-1" id="pre" style="font-size: 13px;">
                       10%
                     </span>
@@ -293,19 +293,19 @@
                     </span>
                   </div>
                   <div class="a1_1">
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="hum" id="hum1" style="font-size: 13px;">
                       53%
                     </span>
                   </div>
                   <div class="a1_2">
-                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;"> 
+                    <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;"> 
                     <span  style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="precip-1" id="pre1" style="font-size: 13px;">
                       10%
                     </span>
@@ -338,19 +338,19 @@
                     </span>
                   </div>
                   <div class="a1_1">                                
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">                                
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">                                
                     <span class="hum" id="hum2" style="font-size: 13px;">
                       53%
                     </span>
                   </div>
                   <div class="a1_2">
-                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span  style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="precip-1" id="pre2" style="font-size: 13px;">10%</span>
                   </div>
                 </div>
@@ -381,19 +381,19 @@
                     </span>
                   </div>
                   <div class="a1_1">
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">                                
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">                                
                     <span class="hum" id="hum3" style="font-size: 13px;">
                       53%
                     </span>
                   </div>
                   <div class="a1_2">
-                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">                                
+                    <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;">                                
                     <span  style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="precip-1" id="pre3"  style="font-size: 13px;">
                       10%
                     </span>
@@ -424,17 +424,17 @@
                     <span id="date-a1-4">2-Mar-2021</span>
                   </div>
                   <div class="a1_1">
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">                                
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">                                
                     <span class="hum" id="hum4" style="font-size: 13px;">53%</span>
                   </div>
                   <div class="a1_2">                                
-                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span  style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="precip-1" id="pre4"  style="font-size: 13px;">
                       10%
                     </span>
@@ -465,17 +465,17 @@
                     </span>                                                
                   </div>                                                
                   <div class="a1_1">
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="hum" id="hum5" style="font-size: 13px;">53%</span>
                   </div>
                   <div class="a1_2">
-                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">                                
+                    <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;">                                
                     <span  style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="precip-1" id="pre5"  style="font-size: 13px;">10%</span>
                   </div>
                 </div>
@@ -504,19 +504,19 @@
                     <span id="date-a1-6">2-Mar-2021</span>
                   </div>
                   <div class="a1_1">
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="hum" id="hum6" style="font-size: 13px;">
                       53%
                     </span>
                   </div>
                   <div class="a1_2">
-                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span  style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="precip-1" id="pre6"  style="font-size: 13px;">
                       10%
                     </span>
@@ -547,19 +547,19 @@
                     <span id="date-a1-7">2-Mar-2021</span>
                   </div>
                   <div class="a1_1">
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="hum" id="hum7" style="font-size: 13px;">
                       53%
                     </span>                              
                   </div>                              
                   <div class="a1_2">                                
-                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">                                
+                    <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;">                                
                     <span  style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="precip-1" id="pre7"  style="font-size: 13px;">10%</span>
                   </div>
                 </div>
@@ -584,17 +584,17 @@
                     <span id="date-a1-8">2-Mar-2021</span>
                   </div>
                   <div class="a1_1">                                
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">                                
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">                                
                     <span class="hum" id="hum8" style="font-size: 13px;">53%</span>
                   </div>
                   <div class="a1_2">
-                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span  style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">                                
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">                                
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">                                
                     <span class="precip-1" id="pre8"  style="font-size: 13px;">10%</span>
                   </div>
                 </div>
@@ -625,19 +625,19 @@
                     </span>
                   </div>
                   <div class="a1_1">
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="hum" id="hum9" style="font-size: 13px;">
                       53%
                     </span>
                   </div>
                   <div class="a1_2">
-                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span  style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="precip-1" id="pre9"  style="font-size: 13px;">
                       10%
                     </span>
@@ -670,19 +670,19 @@
                     </span>
                   </div>
                   <div class="a1_1">
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="hum" id="hum10" style="font-size: 13px;">
                       53%
                     </span>
                   </div>
                   <div class="a1_2">
-                  <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                  <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span  style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="precip-1" id="pre10"  style="font-size: 13px;">
                       10%
                     </span>
@@ -715,19 +715,19 @@
                     </span>
                   </div>
                   <div class="a1_1">
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="hum" id="hum11" style="font-size: 13px;">
                       53%
                     </span>
                   </div>
                   <div class="a1_2">
-                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span  style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="precip-1" id="pre11"  style="font-size: 13px;">
                       10%
                     </span>
@@ -760,19 +760,19 @@
                     </span>
                   </div>
                   <div class="a1_1">
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="hum" id="hum12" style="font-size: 13px;">
                       53%
                     </span>
                   </div>
                   <div class="a1_2">
-                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span  style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="precip-1" id="pre12"  style="font-size: 13px;">
                       10%
                     </span>
@@ -805,19 +805,19 @@
                     </span>
                   </div>
                   <div class="a1_1">
-                    <img src="./img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/sunnyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="hum" id="hum13" style="font-size: 13px;">
                       53%
                     </span>
                   </div>
                   <div class="a1_2">
-                    <img src="./img/windyIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/windyIcon.svg" width="15px" style="margin-right: 10px;">
                     <span  style="font-size: 13px;">
                       5km/hr
                     </span>
                   </div>
                   <div class="a1_3">
-                    <img src="./img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
+                    <img src="./assets/img/precipitationIcon.svg" width="15px" style="margin-right: 10px;">
                     <span class="precip-1" id="pre13"  style="font-size: 13px;">
                       10%
                     </span>
@@ -827,7 +827,7 @@
             </div>
           </div>
           <button id="arrow-right" type="button" class="arrow-right">
-            <img src="./img/forwardArrow.svg">
+            <img src="./assets/img/forwardArrow.svg">
           </button>
         </div>
       </section>
@@ -864,7 +864,7 @@
                 </span>
               </div>
               <div class="rain-percent">
-                <img class="drop-1" src="./img/humidityIcon.svg">
+                <img class="drop-1" src="./assets/img/humidityIcon.svg">
                 <span id="humidity2" class="percent">
                 </span>
               </div>
@@ -885,7 +885,7 @@
                 </span>
               </div>
               <div class="rain-percent">
-                <img class="drop-1" src="./img/humidityIcon.svg">
+                <img class="drop-1" src="./assets/img/humidityIcon.svg">
                 <span id="humidity2" class="percent">
                 </span>
               </div>
@@ -906,7 +906,7 @@
                 </span>
               </div>
               <div class="rain-percent">
-                <img class="drop-1" src="./img/humidityIcon.svg">
+                <img class="drop-1" src="./assets/img/humidityIcon.svg">
                 <span id="humidity2" class="percent">
                 </span>
               </div>
@@ -927,7 +927,7 @@
                 </span>
               </div>
               <div class="rain-percent">
-                <img class="drop-1" src="./img/humidityIcon.svg">
+                <img class="drop-1" src="./assets/img/humidityIcon.svg">
                 <span id="humidity4" class="percent">
                 </span>
               </div>
@@ -948,7 +948,7 @@
                 </span>
               </div>
               <div class="rain-percent">
-                <img class="drop-1" src="./img/humidityIcon.svg">
+                <img class="drop-1" src="./assets/img/humidityIcon.svg">
                 <span id="humidity5" class="percent"></span>
               </div>
             </div>
@@ -968,7 +968,7 @@
                 </span>
               </div>
               <div class="rain-percent">
-                <img class="drop-1" src="./img/humidityIcon.svg">
+                <img class="drop-1" src="./assets/img/humidityIcon.svg">
                 <span id="humidity6" class="percent"></span>
               </div>
             </div>
@@ -988,7 +988,7 @@
                 </span>
               </div>
               <div class="rain-percent">
-                <img class="drop-1" src="./img/humidityIcon.svg">
+                <img class="drop-1" src="./assets/img/humidityIcon.svg">
                 <span id="humidity7" class="percent">
                 </span>
               </div>
@@ -1011,7 +1011,7 @@
                 </span>
               </div>
               <div class="rain-percent">
-                <img class="drop-1" src="./img/humidityIcon.svg">
+                <img class="drop-1" src="./assets/img/humidityIcon.svg">
                 <span id="humidity8" class="percent">                                              
                 </span>
               </div>
@@ -1032,7 +1032,7 @@
                 </span>
               </div>
               <div class="rain-percent">
-                <img class="drop-1" src="./img/humidityIcon.svg">
+                <img class="drop-1" src="./assets/img/humidityIcon.svg">
                 <span id="humidity9" class="percent">
                 </span>
                 </div>
@@ -1053,7 +1053,7 @@
                 </span>
               </div>
               <div class="rain-percent">
-                <img class="drop-1" src="./img/humidityIcon.svg">
+                <img class="drop-1" src="./assets/img/humidityIcon.svg">
                 <span id="humidity10" class="percent"></span>
               </div>
             </div>
@@ -1073,7 +1073,7 @@
                 </span>
               </div>
               <div class="rain-percent">
-                <img class="drop-1" src="./img/humidityIcon.svg">
+                <img class="drop-1" src="./assets/img/humidityIcon.svg">
                 <span  id="humidity11" class="percent">
                 </span>
               </div>
@@ -1094,7 +1094,7 @@
                 </span>
               </div>
               <div class="rain-percent">
-                <img class="drop-1" src="./img/humidityIcon.svg">
+                <img class="drop-1" src="./assets/img/humidityIcon.svg">
                 <span  id="humidity12" class="percent">
                 </span>
               </div>
@@ -1103,9 +1103,9 @@
         </div>
       </div>
       <!-- <script type="text/javascript" src="data.json"></script> -->
-      <script type="module" src="./assets/webapi.js"></script>
-      <script src="./assets/middle.js"></script>
-      <script src="./assets/bottom.js"></script>
+      <script type="module" src="./src/webapi.js"></script>
+      <script src="./src/middle.js"></script>
+      <script src="./src/bottom.js"></script>
     </body>
   </header>
 </html>
