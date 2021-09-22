@@ -13,5 +13,9 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "homepage": "https://bitbucket.org/lakshmipooja_ramesh/lakshmipooja_webtips_assignments#readme"
+    "homepage": "https://bitbucket.org/lakshmipooja_ramesh/lakshmipooja_webtips_assignments#readme",
+    "dependencies": {
+        "axios": "^0.21.4",
+        "express": "^4.17.1"
+    }
 }
