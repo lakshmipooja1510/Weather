@@ -1,54 +1,50 @@
 var express = require('express')
-var path = require('path')
 var app = express()
-const axios = require('axios')
-let Data, citydata, hour
-async function fetchData() {
-    try {
-        return await axios.get('https://soliton.glitch.me/all-timezone-cities')
-    } catch (error) {
-        console.error(error)
-    }
-}
-async function citydetail(city) {
-    try {
-        return await axios.get(`https://soliton.glitch.me?city=${city}`)
-    } catch (error) {
-        console.error(error)
-    }
-}
-async function nextFourHours(cityDataTime, hour) {
-    try {
-        return await axios.post(`https://soliton.glitch.me/hourly-forecast`, {
-            city_Date_Time_Name: cityDataTime,
-            hours: hour,
-        })
-    } catch (error) {
-        console.error(error)
-    }
-}
+var path = require('path')
+const timezones = require('./src/timeZone')
+
 app.use(express.static('public'))
 app.use('/css', express.static(path.join(__dirname, '/css')))
 app.use('/src', express.static(path.join(__dirname, '/src')))
 app.use('/assets', express.static(path.join(__dirname, '/assets')))
-app.get('/data', function (req, res) {
-    ;(async () => {
-        Data = await fetchData()
-        res.send(Data.data)
-    })()
+
+app.get('/', (req, res) => {
+    var city = req.query.city
+    if (city) {
+        res.json(timezones.timeForOneCity(city))
+    } else {
+        res.status(404).json({
+            Error: 'Not a valid end point.please check API doc',
+        })
+    }
 })
-app.get('/hours/:city', function (req, res) {
-    ;(async () => {
-        citydata = await citydetail(req.params.city)
-        res.send(citydata.data)
-    })()
+
+app.post('/hourly-forcast', (req, res) => {
+    let cityDTN = req.body.city_Date_Time_Name
+    let hours = req.body.hours
+    if (cityDTN && hours) {
+        res.json(timezones.nextNHoursWeather(cityDTN, hours, weatherResult))
+    } else {
+        res.status(404).json({
+            Error: 'Not a valid end point.please check API doc',
+        })
+    }
 })
-app.post('/nextfourhours', function (req, res) {
-    ;(async () => {
-        hour = await nextFourHours(req.body.city_Date_Time_Name, req.body.hours)
-        res.send(hour.data)
-    })()
+
+app.get('/all-timezone-cities', (req, res) => {
+    let currentTime = new Date()
+    if (currentTime - startTime > dayCheck) {
+        startTime = new Date()
+        weatherResult = timezones.allTimeZones()
+        res.json(weatherResult)
+    } else {
+        if (weatherResult.length === 0) {
+            weatherResult = timezones.allTimeZones()
+        }
+        res.json(weatherResult)
+    }
 })
+
 app.listen(5500, function () {
     console.log('listening to port 5500')
 })
