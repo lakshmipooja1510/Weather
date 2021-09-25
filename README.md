@@ -47,8 +47,33 @@ npm install express --save
 
 ```
  npm install -g nodemon --save
-``
+```
 
+-   cors
+```
+npm install cors --save
+```
+
+- body-parser
+```
+npm install body-parser
+```
+
+---
 ## INSTALLATIONS
 
 Use this [link] (https://nodejs.org/en/download/) to install node
+
+---
+
+## TO RUN THE node_http.js File
+```
+-   cd public
+-   node node_http.js
+```
+---
+## TO RUN THE node_http.js File
+```
+-   node node_express.js
+```
+---
