@@ -65,9 +65,7 @@ npm install body-parser
 
 ## INSTALLATIONS
 
-Use this [link] (https://nodejs.org/en/download/) to install node
-
----
+## Use this [link] (https://nodejs.org/en/download/) to install node
 
 ## TO RUN THE node_http.js File
 
@@ -76,12 +74,8 @@ cd public
 node node_http.js
 ```
 
----
-
 ## TO RUN THE node_http.js File
 
 ```
 node node_express.js
 ```
-
----

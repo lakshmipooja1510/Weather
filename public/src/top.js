@@ -82,7 +82,7 @@ export function top() {
             method: 'GET',
             redirect: 'follow',
         }
-        fetch(`http://localhost:8000?city=${city_name[j]}`, requestOptions)
+        fetch(`http://localhost:8000/city/${city_name[j]}`, requestOptions)
             .then((response) => response.json())
             .then((result) => {
                 let myHeaders = new Headers()
@@ -103,7 +103,7 @@ export function top() {
                     .then((result) => {
                         parsedData['nextFiveHrs'] = result.temperature
                         next_five_hrs_array.push(result.temperature)
-                        console.log('temperature for next 4 hours')
+                        // console.log('temperature for next 4 hours')
                     })
                     .catch((_error) => console.log('error'))
             })
